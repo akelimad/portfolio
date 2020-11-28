@@ -10,7 +10,7 @@ class HomeController extends Controller
 {
   public function index()
   {
-    $formations = Formation::all();
+    $formations = Formation::orderBy('startdate', 'DESC')->get();
     return Inertia::render('Home', compact('formations'));
   }
 }

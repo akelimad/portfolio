@@ -9,6 +9,7 @@ import PortalVue from 'portal-vue';
 import VueToastr from 'vue-toastr'
 import VueSimpleAlert from "vue-simple-alert";
 import moment from "moment";
+import truncate from "vue-truncate-filter"
 
 Vue.mixin({ methods: { route } });
 Vue.use(InertiaApp);
@@ -17,6 +18,7 @@ Vue.use(PortalVue);
 Vue.use(VueToastr)
 Vue.use(VueSimpleAlert);
 Vue.use(moment);
+Vue.use(truncate);
 
 const app = document.getElementById('app');
 
@@ -31,6 +33,6 @@ new Vue({
     filters: {
         format: function (value, arg1) {
             return moment(String(value)).format(arg1)
-        }
+        },
     },
 }).$mount(app);

@@ -18,7 +18,7 @@ class FormationController extends Controller
 
   public function index()
   {
-    $formations = Formation::all();
+    $formations = Formation::orderBy('startdate', 'DESC')->get();
     return Inertia::render('Formations/Index', compact('formations'));
   }
 

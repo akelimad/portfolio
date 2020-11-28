@@ -3962,89 +3962,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   created: function created() {
@@ -70002,7 +69919,8 @@ var render = function() {
       { staticClass: "flex justify-content-between items-center mb-3" },
       [
         _c("h3", { staticClass: "text-gray-700 text-3xl font-medium m-0" }, [
-          _vm._v("Formations")
+          _c("i", { staticClass: "fa fa-graduation-cap" }),
+          _vm._v(" Formations")
         ]),
         _vm._v(" "),
         _c(
@@ -70016,7 +69934,7 @@ var render = function() {
       ]
     ),
     _vm._v(" "),
-    _c("div", { staticClass: "table-box bg-white p-4" }, [
+    _c("div", { staticClass: "table-box bg-white" }, [
       _c("table", { staticClass: "table-auto w-full" }, [
         _c("thead", [
           _c("tr", [
@@ -70043,9 +69961,14 @@ var render = function() {
           [
             _vm._l(_vm.formations, function(formation) {
               return _c("tr", { key: formation.id }, [
-                _c("td", { staticClass: "border px-4 py-2" }, [
-                  _vm._v(_vm._s(formation.title))
-                ]),
+                _c(
+                  "td",
+                  {
+                    staticClass: "border px-4 py-2",
+                    attrs: { title: formation.title }
+                  },
+                  [_vm._v(_vm._s(_vm._f("truncate")(formation.title, 30)))]
+                ),
                 _vm._v(" "),
                 _c("td", { staticClass: "border px-4 py-2" }, [
                   _vm._v(_vm._s(formation.startdate))
@@ -70201,7 +70124,7 @@ var render = function() {
                   _c("div", {
                     staticClass:
                       "img d-flex align-self-stretch align-items-center",
-                    staticStyle: { "background-image": "url(images/about.jpg)" }
+                    staticStyle: { "background-image": "url(images/about.png)" }
                   })
                 ]
               )
@@ -70380,9 +70303,9 @@ var render = function() {
                   this.formationsData.length == 0
                     ? _c("div", { staticClass: "alert alert-info" }, [
                         _vm._v(
-                          "\n                " +
+                          "\n              " +
                             _vm._s("No formation found") +
-                            "\n              "
+                            "\n            "
                         )
                       ])
                     : _vm._e()
@@ -70599,172 +70522,6 @@ var render = function() {
                   ])
                 ])
               ])
-            ])
-          ])
-        ])
-      ]
-    ),
-    _vm._v(" "),
-    _c(
-      "section",
-      { staticClass: "ftco-section", attrs: { id: "services-section" } },
-      [
-        _c("div", { staticClass: "container-fluid px-md-5" }, [
-          _c("div", { staticClass: "row justify-content-center py-5 mt-5" }, [
-            _c(
-              "div",
-              { staticClass: "col-md-12 heading-section text-center" },
-              [
-                _c("h1", { staticClass: "big big-2" }, [_vm._v("Services")]),
-                _vm._v(" "),
-                _c("h2", { staticClass: "mb-4" }, [_vm._v("Services")]),
-                _vm._v(" "),
-                _c("p", [
-                  _vm._v(
-                    "Far far away, behind the word mountains, far from the countries Vokalia and Consonantia"
-                  )
-                ])
-              ]
-            )
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "row" }, [
-            _c("div", { staticClass: "col-md-4 text-center d-flex" }, [
-              _c(
-                "a",
-                { staticClass: "services-1 shadow", attrs: { href: "#" } },
-                [
-                  _c("span", { staticClass: "icon" }, [
-                    _c("i", { staticClass: "flaticon-analysis" })
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "desc" }, [
-                    _c("h3", { staticClass: "mb-5" }, [_vm._v("Web Design")]),
-                    _vm._v(" "),
-                    _c("p", [
-                      _vm._v(
-                        "A small river named Duden flows by their place and supplies it with the necessary regelialia."
-                      )
-                    ])
-                  ])
-                ]
-              )
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "col-md-4 text-center d-flex" }, [
-              _c(
-                "a",
-                { staticClass: "services-1 shadow", attrs: { href: "#" } },
-                [
-                  _c("span", { staticClass: "icon" }, [
-                    _c("i", { staticClass: "flaticon-flasks" })
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "desc" }, [
-                    _c("h3", { staticClass: "mb-5" }, [_vm._v("Phtography")]),
-                    _vm._v(" "),
-                    _c("p", [
-                      _vm._v(
-                        "A small river named Duden flows by their place and supplies it with the necessary regelialia."
-                      )
-                    ])
-                  ])
-                ]
-              )
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "col-md-4 text-center d-flex" }, [
-              _c(
-                "a",
-                { staticClass: "services-1 shadow", attrs: { href: "#" } },
-                [
-                  _c("span", { staticClass: "icon" }, [
-                    _c("i", { staticClass: "flaticon-ideas" })
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "desc" }, [
-                    _c("h3", { staticClass: "mb-5" }, [
-                      _vm._v("Web Developer")
-                    ]),
-                    _vm._v(" "),
-                    _c("p", [
-                      _vm._v(
-                        "A small river named Duden flows by their place and supplies it with the necessary regelialia."
-                      )
-                    ])
-                  ])
-                ]
-              )
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "col-md-4 text-center d-flex" }, [
-              _c(
-                "a",
-                { staticClass: "services-1 shadow", attrs: { href: "#" } },
-                [
-                  _c("span", { staticClass: "icon" }, [
-                    _c("i", { staticClass: "flaticon-innovation" })
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "desc" }, [
-                    _c("h3", { staticClass: "mb-5" }, [
-                      _vm._v("App Developing")
-                    ]),
-                    _vm._v(" "),
-                    _c("p", [
-                      _vm._v(
-                        "A small river named Duden flows by their place and supplies it with the necessary regelialia."
-                      )
-                    ])
-                  ])
-                ]
-              )
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "col-md-4 text-center d-flex" }, [
-              _c(
-                "a",
-                { staticClass: "services-1 shadow", attrs: { href: "#" } },
-                [
-                  _c("span", { staticClass: "icon" }, [
-                    _c("i", { staticClass: "flaticon-ux-design" })
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "desc" }, [
-                    _c("h3", { staticClass: "mb-5" }, [_vm._v("Branding")]),
-                    _vm._v(" "),
-                    _c("p", [
-                      _vm._v(
-                        "A small river named Duden flows by their place and supplies it with the necessary regelialia."
-                      )
-                    ])
-                  ])
-                ]
-              )
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "col-md-4 text-center d-flex" }, [
-              _c(
-                "a",
-                { staticClass: "services-1 shadow", attrs: { href: "#" } },
-                [
-                  _c("span", { staticClass: "icon" }, [
-                    _c("i", { staticClass: "flaticon-idea" })
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "desc" }, [
-                    _c("h3", { staticClass: "mb-5" }, [
-                      _vm._v("Product Strategy")
-                    ]),
-                    _vm._v(" "),
-                    _c("p", [
-                      _vm._v(
-                        "A small river named Duden flows by their place and supplies it with the necessary regelialia."
-                      )
-                    ])
-                  ])
-                ]
-              )
             ])
           ])
         ])
@@ -74732,6 +74489,57 @@ const __vue_script__$3 = VueToastr;
 // export { default } from "./components/VueToastr.vue";
 
 /* harmony default export */ __webpack_exports__["default"] = (VueToastr$1);
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-truncate-filter/vue-truncate.js":
+/*!**********************************************************!*\
+  !*** ./node_modules/vue-truncate-filter/vue-truncate.js ***!
+  \**********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+;(function () {
+
+  var vueTruncate = {};
+
+  vueTruncate.install = function (Vue) {
+    
+    /**
+     * 
+     * @param {String} text
+     * @param {Number} length
+     * @param {String} clamp
+     * 
+     */
+
+    Vue.filter('truncate', function (text, length, clamp) {
+      clamp = clamp || '...';
+      length = length || 30;
+      
+      if (text.length <= length) return text;
+
+      var tcText = text.slice(0, length - clamp.length);
+      var last = tcText.length - 1;
+      
+
+      while (last > 0 && tcText[last] !== ' ' && tcText[last] !== clamp[0]) last -= 1;
+
+      // Fix for case when text dont have any `space`
+      last = last || length - clamp.length;
+
+      tcText =  tcText.slice(0, last);
+
+      return tcText + clamp;
+    });
+  }
+
+  if (true) {
+    module.exports = vueTruncate;
+  } else {}
+
+})()
 
 
 /***/ }),
@@ -89801,7 +89609,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue_simple_alert__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! vue-simple-alert */ "./node_modules/vue-simple-alert/lib/index.js");
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var vue_truncate_filter__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! vue-truncate-filter */ "./node_modules/vue-truncate-filter/vue-truncate.js");
+/* harmony import */ var vue_truncate_filter__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(vue_truncate_filter__WEBPACK_IMPORTED_MODULE_8__);
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
+
 
 
 
@@ -89822,6 +89633,7 @@ vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(portal_vue__WEBPACK_IMPORTED_MODU
 vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vue_toastr__WEBPACK_IMPORTED_MODULE_5__["default"]);
 vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vue_simple_alert__WEBPACK_IMPORTED_MODULE_6__["default"]);
 vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(moment__WEBPACK_IMPORTED_MODULE_7___default.a);
+vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vue_truncate_filter__WEBPACK_IMPORTED_MODULE_8___default.a);
 var app = document.getElementById('app');
 new vue__WEBPACK_IMPORTED_MODULE_1___default.a({
   render: function render(h) {

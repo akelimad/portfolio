@@ -1,7 +1,7 @@
 <template>
   <admin-layout>
     <div class="flex justify-content-between items-center mb-3">
-      <h3 class="text-gray-700 text-3xl font-medium m-0">Formations</h3>
+      <h3 class="text-gray-700 text-3xl font-medium m-0"><i class="fa fa-graduation-cap"></i> Formations</h3>
       <a
         href="/formations/form"
         class="px-3 py-1 bg-success text-white rounded"
@@ -9,7 +9,7 @@
         <i class="fa fa-plus"></i> Add new
       </a>
     </div>
-    <div class="table-box bg-white p-4">
+    <div class="table-box bg-white">
       <table class="table-auto w-full">
         <thead>
           <tr>
@@ -22,7 +22,7 @@
         </thead>
         <tbody>
           <tr v-for="formation in formations" :key="formation.id">
-            <td class="border px-4 py-2">{{ formation.title }}</td>
+            <td class="border px-4 py-2" :title="formation.title">{{ formation.title|truncate(30) }}</td>
             <td class="border px-4 py-2">{{ formation.startdate }}</td>
             <td class="border px-4 py-2">{{ formation.enddate }}</td>
             <td class="border px-4 py-2">{{ formation.school }}</td>

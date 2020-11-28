@@ -40,6 +40,7 @@
         "scrollax": "^1.0.0",
         "vue-simple-alert": "^1.1.1",
         "vue-toastr": "^2.1.2",
+        "vue-truncate-filter": "^1.1.7",
         "waypoint": "^0.2.8"
     }
 }
