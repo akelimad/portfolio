@@ -21,10 +21,16 @@ use App\Http\Controllers\CertificationController;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+
 Route::get('/formations', [FormationController::class, 'index'])->name('formations');
 Route::get('/formations/form/{id?}', [FormationController::class, 'form'])->name('formations.form');
 Route::post('/formations/form/store', [FormationController::class, 'store'])->name('formations.store');
 Route::any('/formations/{formation}/delete', [FormationController::class, 'delete'])->name('formations.delete');
+
+Route::get('/experiences', [ExperienceController::class, 'index'])->name('experiences');
+Route::get('/experiences/form/{id?}', [ExperienceController::class, 'form'])->name('experiences.form');
+Route::post('/experiences/form/store', [ExperienceController::class, 'store'])->name('experiences.store');
+Route::any('/experiences/{experience}/delete', [ExperienceController::class, 'delete'])->name('experiences.delete');
 
 
 Route::get('/experiences', [ExperienceController::class, 'index'])->name('experiences');
