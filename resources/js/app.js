@@ -30,9 +30,4 @@ new Vue({
                 resolveComponent: (name) => require(`./Pages/${name}`).default,
             },
         }),
-    filters: {
-        format: function (value, arg1) {
-            return moment(String(value)).format(arg1)
-        },
-    },
 }).$mount(app);

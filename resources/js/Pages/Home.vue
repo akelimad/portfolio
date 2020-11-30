@@ -1,7 +1,7 @@
 <template>
   <guest-layout>
 
-    <section class="hero-wrap js-fullheight">
+    <section class="ftco-section hero-wrap js-fullheight p-0" id="home-section">
       <div class="overlay"></div>
       <div class="container">
         <div class="row no-gutters slider-text js-fullheight justify-content-center align-items-center">
@@ -21,7 +21,7 @@
       </div>
     </section>
 
-    <section class="ftco-about img ftco-section ftco-no-pt ftco-no-pb" id="about-section">
+    <section class="ftco-section img ftco-about py-5" id="about-section">
       <div class="container">
         <div class="row d-flex no-gutters">
           <div class="col-md-6 col-lg-6 d-flex">
@@ -34,16 +34,14 @@
           <div class="col-md-6 col-lg-6 pl-md-5 py-5">
             <div class="row justify-content-start pb-3">
               <div class="col-md-12 heading-section">
-                <h1 class="big">About</h1>
                 <h2 class="mb-4">About Me</h2>
-                <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
                 <ul class="about-info mt-4 px-md-0 px-2">
-                  <li class="d-flex"><span>Name:</span> <span>Ronaldo Fredrickson</span></li>
-                  <li class="d-flex"><span>Date of birth:</span> <span>November 28, 1989</span></li>
-                  <li class="d-flex"><span>Address:</span> <span>San Francisco CA 97987 USA</span></li>
-                  <li class="d-flex"><span>Zip code:</span> <span>1000</span></li>
-                  <li class="d-flex"><span>Email:</span> <span>ronaldo@gmail.com</span></li>
-                  <li class="d-flex"><span>Phone: </span> <span>+1-2234-5678-9-0</span></li>
+                  <li class="d-flex"><span>Name:</span> <span>Imad AKEL</span></li>
+                  <li class="d-flex"><span>Date of birth:</span> <span>Aug 01, 1990</span></li>
+                  <li class="d-flex"><span>Address:</span> <span>4029, Lot wafik, Temara, Morocco</span></li>
+                  <li class="d-flex"><span>Zip code:</span> <span>12000</span></li>
+                  <li class="d-flex"><span>Email:</span> <a href="mailto:akel.dev@gmail.com">akel.dev@gmail.com</a></li>
+                  <li class="d-flex"><span>Phone: </span> <a href="tel:+212 6 06 83 30 78">+212 6 06 83 30 78</a></li>
                 </ul>
               </div>
             </div>
@@ -53,7 +51,7 @@
                   <span class="number" data-number="120">0</span>
                   <span>Project complete</span>
                 </p>
-                <p><a href="#" class="btn btn-primary py-3 px-3">Download CV</a></p>
+                <p><a href="/cv-imad-akel.pdf" target="_blank" class="btn btn-primary py-3 px-3">Download CV</a></p>
               </div>
             </div>
           </div>
@@ -61,7 +59,7 @@
       </div>
     </section>
 
-    <section class="ftco-section ftco-no-pb goto-here" id="resume-section">
+    <section class="ftco-section goto-here py-5" id="resume-section">
       <div class="container">
         <div class="row">
           <div class="col-md-3">
@@ -96,15 +94,18 @@
             <div id="page-2" class= "page two">
               <h2 class="heading">Experience</h2>
 
-              <div class="resume-wrap d-flex">
+              <div v-for="experience in this.experiencesData" :key="experience.id"  class="resume-wrap d-flex">
                 <div class="icon d-flex align-items-center justify-content-center">
-                  <span class="flaticon-ideas"></span>
+                  <span class="fa fa-briefcase"></span>
                 </div>
                 <div class="text pl-3">
-                  <span class="date">2014-2015</span>
-                  <h2>Software Developer</h2>
-                  <span class="position">Cambridge University</span>
-                  <p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
+                  <span class="date">
+                    {{ experience.startdate | format('YYYY MMM') }} - 
+                    {{ experience.enddate | format('YYYY MMM') }}
+                    </span>
+                  <h2>{{ experience.title }}</h2>
+                  <span class="position"><i class="fa fa-map-marker text-red-500"></i> {{ experience.city }} | {{ experience.company }}</span>
+                  <p>{{ experience.description }}</p>
                 </div>
               </div>
             </div>
@@ -174,10 +175,10 @@
               </div>
             </div>
             <div id="page-4" class= "page four">
-              <h2 class="heading">Awards</h2>
+              <h2 class="heading">Certifications</h2>
               <div class="resume-wrap d-flex">
                 <div class="icon d-flex align-items-center justify-content-center">
-                  <span class="flaticon-ideas"></span>
+                  <span class="fa fa-certificate"></span>
                 </div>
                 <div class="text pl-3">
                   <span class="date">2014-2015</span>
@@ -192,12 +193,11 @@
       </div>
     </section>
 
-    <section class="ftco-section ftco-project" id="projects-section">
+    <section class="ftco-section py-5" id="projects-section">
       <div class="container-fluid px-md-0">
         <div class="row no-gutters justify-content-center pb-5">
           <div class="col-md-12 heading-section text-center">
-            <h1 class="big big-2">Projects</h1>
-            <h2 class="mb-4">Our Projects</h2>
+            <h2 class="mb-4">Projects</h2>
             <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia</p>
           </div>
         </div>
@@ -261,12 +261,11 @@
       </div>
     </section>
 
-    <section class="ftco-section contact-section ftco-no-pb" id="contact-section">
+    <section class="ftco-section contact-section py-5" id="contact-section">
       <div class="container">
         <div class="row justify-content-center mb-5 pb-3">
           <div class="col-md-7 heading-section text-center">
-            <h1 class="big big-2">Contact</h1>
-            <h2 class="mb-4">Contact Me</h2>
+            <h2 class="mb-4">Get in touch</h2>
             <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia</p>
           </div>
         </div>
@@ -337,21 +336,22 @@
 
   export default {
     created () {
-      console.log(this.formations)
+      
     },
     data () {
       return {
-        formationsData: this.formations
+        formationsData: this.formations,
+        experiencesData: this.experiences,
       }
     },
-    props: ["formations"],
+    props: ["formations", "experiences"],
     components: {
       GuestLayout
     },
     filters: {
-        format: function (value, arg1) {
-            return moment(String(value)).format(arg1)
-        }
+      format: function (value, arg1) {
+        return value ? moment(String(value)).format(arg1) : 'Till today'
+      }
     },
   }
 </script>

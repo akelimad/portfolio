@@ -307,5 +307,21 @@ $(document).ready(function () {
 
   }
 
+  function onScroll() {
+    var scrollHeight = $(document).scrollTop();
+    $('.navbar-nav a').each(function () {
+      var currLink = $(this);
+      var href = $(currLink.attr("href"));
+      if ($(href).position().top <= scrollHeight + 70 && $(href).position().top + $(href).height() > scrollHeight) {
+        $('nav a').removeClass("active");
+        currLink.addClass("active");
+      } else {
+        currLink.removeClass("active");
+      }
+    });
+  }
+  $(document).on("scroll", onScroll);
+  onScroll()
+
 });
 

@@ -3021,7 +3021,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ __webpack_exports__["default"] = ({});
 
 /***/ }),
@@ -4129,24 +4128,22 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  created: function created() {
-    console.log(this.formations);
-  },
+  created: function created() {},
   data: function data() {
     return {
-      formationsData: this.formations
+      formationsData: this.formations,
+      experiencesData: this.experiences
     };
   },
-  props: ["formations"],
+  props: ["formations", "experiences"],
   components: {
     GuestLayout: _Layouts_GuestLayout__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
   filters: {
     format: function format(value, arg1) {
-      return moment(String(value)).format(arg1);
+      return value ? moment(String(value)).format(arg1) : 'Till today';
     }
   }
 });
@@ -68708,11 +68705,10 @@ var staticRenderFns = [
       },
       [
         _c("div", { staticClass: "container" }, [
-          _c(
-            "a",
-            { staticClass: "navbar-brand", attrs: { href: "index.html" } },
-            [_c("span", [_vm._v("R")]), _vm._v("onaldo")]
-          ),
+          _c("a", { staticClass: "navbar-brand", attrs: { href: "/" } }, [
+            _c("span", [_vm._v("I")]),
+            _vm._v("AKEL")
+          ]),
           _vm._v(" "),
           _c(
             "button",
@@ -68769,17 +68765,6 @@ var staticRenderFns = [
                       attrs: { href: "#resume-section" }
                     },
                     [_c("span", [_vm._v("Resume")])]
-                  )
-                ]),
-                _vm._v(" "),
-                _c("li", { staticClass: "nav-item" }, [
-                  _c(
-                    "a",
-                    {
-                      staticClass: "nav-link",
-                      attrs: { href: "#services-section" }
-                    },
-                    [_c("span", [_vm._v("Services")])]
                   )
                 ]),
                 _vm._v(" "),
@@ -70655,62 +70640,69 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("guest-layout", [
-    _c("section", { staticClass: "hero-wrap js-fullheight" }, [
-      _c("div", { staticClass: "overlay" }),
-      _vm._v(" "),
-      _c("div", { staticClass: "container" }, [
-        _c(
-          "div",
-          {
-            staticClass:
-              "row no-gutters slider-text js-fullheight justify-content-center align-items-center"
-          },
-          [
-            _c(
-              "div",
-              { staticClass: "col-lg-8 col-md-6 d-flex align-items-center" },
-              [
-                _c("div", { staticClass: "text text-center" }, [
-                  _c("span", { staticClass: "subheading" }, [
-                    _vm._v("Hey! I am")
-                  ]),
-                  _vm._v(" "),
-                  _c("h1", [_vm._v("Imad AKEL")]),
-                  _vm._v(" "),
-                  _c("h2", [
-                    _vm._v("I'm a "),
-                    _c("span", {
-                      staticClass: "txt-rotate",
-                      attrs: {
-                        "data-period": "2000",
-                        "data-rotate": '["Developer."]'
-                      }
-                    })
+    _c(
+      "section",
+      {
+        staticClass: "ftco-section hero-wrap js-fullheight p-0",
+        attrs: { id: "home-section" }
+      },
+      [
+        _c("div", { staticClass: "overlay" }),
+        _vm._v(" "),
+        _c("div", { staticClass: "container" }, [
+          _c(
+            "div",
+            {
+              staticClass:
+                "row no-gutters slider-text js-fullheight justify-content-center align-items-center"
+            },
+            [
+              _c(
+                "div",
+                { staticClass: "col-lg-8 col-md-6 d-flex align-items-center" },
+                [
+                  _c("div", { staticClass: "text text-center" }, [
+                    _c("span", { staticClass: "subheading" }, [
+                      _vm._v("Hey! I am")
+                    ]),
+                    _vm._v(" "),
+                    _c("h1", [_vm._v("Imad AKEL")]),
+                    _vm._v(" "),
+                    _c("h2", [
+                      _vm._v("I'm a "),
+                      _c("span", {
+                        staticClass: "txt-rotate",
+                        attrs: {
+                          "data-period": "2000",
+                          "data-rotate": '["Developer."]'
+                        }
+                      })
+                    ])
                   ])
-                ])
-              ]
-            )
-          ]
-        )
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "mouse" }, [
-        _c(
-          "a",
-          { staticClass: "mouse-icon", attrs: { href: "#about-section" } },
-          [
-            _c("div", { staticClass: "mouse-wheel" }, [
-              _c("span", { staticClass: "fa fa-chevron-down" })
-            ])
-          ]
-        )
-      ])
-    ]),
+                ]
+              )
+            ]
+          )
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "mouse" }, [
+          _c(
+            "a",
+            { staticClass: "mouse-icon", attrs: { href: "#about-section" } },
+            [
+              _c("div", { staticClass: "mouse-wheel" }, [
+                _c("span", { staticClass: "fa fa-chevron-down" })
+              ])
+            ]
+          )
+        ])
+      ]
+    ),
     _vm._v(" "),
     _c(
       "section",
       {
-        staticClass: "ftco-about img ftco-section ftco-no-pt ftco-no-pb",
+        staticClass: "ftco-section img ftco-about py-5",
         attrs: { id: "about-section" }
       },
       [
@@ -70735,51 +70727,49 @@ var render = function() {
             _c("div", { staticClass: "col-md-6 col-lg-6 pl-md-5 py-5" }, [
               _c("div", { staticClass: "row justify-content-start pb-3" }, [
                 _c("div", { staticClass: "col-md-12 heading-section" }, [
-                  _c("h1", { staticClass: "big" }, [_vm._v("About")]),
-                  _vm._v(" "),
                   _c("h2", { staticClass: "mb-4" }, [_vm._v("About Me")]),
-                  _vm._v(" "),
-                  _c("p", [
-                    _vm._v(
-                      "A small river named Duden flows by their place and supplies it with the necessary regelialia."
-                    )
-                  ]),
                   _vm._v(" "),
                   _c("ul", { staticClass: "about-info mt-4 px-md-0 px-2" }, [
                     _c("li", { staticClass: "d-flex" }, [
                       _c("span", [_vm._v("Name:")]),
                       _vm._v(" "),
-                      _c("span", [_vm._v("Ronaldo Fredrickson")])
+                      _c("span", [_vm._v("Imad AKEL")])
                     ]),
                     _vm._v(" "),
                     _c("li", { staticClass: "d-flex" }, [
                       _c("span", [_vm._v("Date of birth:")]),
                       _vm._v(" "),
-                      _c("span", [_vm._v("November 28, 1989")])
+                      _c("span", [_vm._v("Aug 01, 1990")])
                     ]),
                     _vm._v(" "),
                     _c("li", { staticClass: "d-flex" }, [
                       _c("span", [_vm._v("Address:")]),
                       _vm._v(" "),
-                      _c("span", [_vm._v("San Francisco CA 97987 USA")])
+                      _c("span", [_vm._v("4029, Lot wafik, Temara, Morocco")])
                     ]),
                     _vm._v(" "),
                     _c("li", { staticClass: "d-flex" }, [
                       _c("span", [_vm._v("Zip code:")]),
                       _vm._v(" "),
-                      _c("span", [_vm._v("1000")])
+                      _c("span", [_vm._v("12000")])
                     ]),
                     _vm._v(" "),
                     _c("li", { staticClass: "d-flex" }, [
                       _c("span", [_vm._v("Email:")]),
                       _vm._v(" "),
-                      _c("span", [_vm._v("ronaldo@gmail.com")])
+                      _c(
+                        "a",
+                        { attrs: { href: "mailto:akel.dev@gmail.com" } },
+                        [_vm._v("akel.dev@gmail.com")]
+                      )
                     ]),
                     _vm._v(" "),
                     _c("li", { staticClass: "d-flex" }, [
                       _c("span", [_vm._v("Phone: ")]),
                       _vm._v(" "),
-                      _c("span", [_vm._v("+1-2234-5678-9-0")])
+                      _c("a", { attrs: { href: "tel:+212 6 06 83 30 78" } }, [
+                        _vm._v("+212 6 06 83 30 78")
+                      ])
                     ])
                   ])
                 ])
@@ -70805,7 +70795,7 @@ var render = function() {
                       "a",
                       {
                         staticClass: "btn btn-primary py-3 px-3",
-                        attrs: { href: "#" }
+                        attrs: { href: "/cv-imad-akel.pdf", target: "_blank" }
                       },
                       [_vm._v("Download CV")]
                     )
@@ -70821,7 +70811,7 @@ var render = function() {
     _c(
       "section",
       {
-        staticClass: "ftco-section ftco-no-pb goto-here",
+        staticClass: "ftco-section goto-here py-5",
         attrs: { id: "resume-section" }
       },
       [
@@ -70915,36 +70905,69 @@ var render = function() {
                 2
               ),
               _vm._v(" "),
-              _c("div", { staticClass: "page two", attrs: { id: "page-2" } }, [
-                _c("h2", { staticClass: "heading" }, [_vm._v("Experience")]),
-                _vm._v(" "),
-                _c("div", { staticClass: "resume-wrap d-flex" }, [
-                  _c(
-                    "div",
-                    {
-                      staticClass:
-                        "icon d-flex align-items-center justify-content-center"
-                    },
-                    [_c("span", { staticClass: "flaticon-ideas" })]
-                  ),
+              _c(
+                "div",
+                { staticClass: "page two", attrs: { id: "page-2" } },
+                [
+                  _c("h2", { staticClass: "heading" }, [_vm._v("Experience")]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "text pl-3" }, [
-                    _c("span", { staticClass: "date" }, [_vm._v("2014-2015")]),
-                    _vm._v(" "),
-                    _c("h2", [_vm._v("Software Developer")]),
-                    _vm._v(" "),
-                    _c("span", { staticClass: "position" }, [
-                      _vm._v("Cambridge University")
-                    ]),
-                    _vm._v(" "),
-                    _c("p", [
-                      _vm._v(
-                        "A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth."
-                      )
-                    ])
-                  ])
-                ])
-              ]),
+                  _vm._l(this.experiencesData, function(experience) {
+                    return _c(
+                      "div",
+                      { key: experience.id, staticClass: "resume-wrap d-flex" },
+                      [
+                        _c(
+                          "div",
+                          {
+                            staticClass:
+                              "icon d-flex align-items-center justify-content-center"
+                          },
+                          [_c("span", { staticClass: "fa fa-briefcase" })]
+                        ),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "text pl-3" }, [
+                          _c("span", { staticClass: "date" }, [
+                            _vm._v(
+                              "\n                  " +
+                                _vm._s(
+                                  _vm._f("format")(
+                                    experience.startdate,
+                                    "YYYY MMM"
+                                  )
+                                ) +
+                                " - \n                  " +
+                                _vm._s(
+                                  _vm._f("format")(
+                                    experience.enddate,
+                                    "YYYY MMM"
+                                  )
+                                ) +
+                                "\n                  "
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("h2", [_vm._v(_vm._s(experience.title))]),
+                          _vm._v(" "),
+                          _c("span", { staticClass: "position" }, [
+                            _c("i", {
+                              staticClass: "fa fa-map-marker text-red-500"
+                            }),
+                            _vm._v(
+                              " " +
+                                _vm._s(experience.city) +
+                                " | " +
+                                _vm._s(experience.company)
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("p", [_vm._v(_vm._s(experience.description))])
+                        ])
+                      ]
+                    )
+                  })
+                ],
+                2
+              ),
               _vm._v(" "),
               _c(
                 "div",
@@ -71095,7 +71118,9 @@ var render = function() {
               ),
               _vm._v(" "),
               _c("div", { staticClass: "page four", attrs: { id: "page-4" } }, [
-                _c("h2", { staticClass: "heading" }, [_vm._v("Awards")]),
+                _c("h2", { staticClass: "heading" }, [
+                  _vm._v("Certifications")
+                ]),
                 _vm._v(" "),
                 _c("div", { staticClass: "resume-wrap d-flex" }, [
                   _c(
@@ -71104,7 +71129,7 @@ var render = function() {
                       staticClass:
                         "icon d-flex align-items-center justify-content-center"
                     },
-                    [_c("span", { staticClass: "flaticon-ideas" })]
+                    [_c("span", { staticClass: "fa fa-certificate" })]
                   ),
                   _vm._v(" "),
                   _c("div", { staticClass: "text pl-3" }, [
@@ -71132,10 +71157,7 @@ var render = function() {
     _vm._v(" "),
     _c(
       "section",
-      {
-        staticClass: "ftco-section ftco-project",
-        attrs: { id: "projects-section" }
-      },
+      { staticClass: "ftco-section py-5", attrs: { id: "projects-section" } },
       [
         _c("div", { staticClass: "container-fluid px-md-0" }, [
           _c(
@@ -71146,9 +71168,7 @@ var render = function() {
                 "div",
                 { staticClass: "col-md-12 heading-section text-center" },
                 [
-                  _c("h1", { staticClass: "big big-2" }, [_vm._v("Projects")]),
-                  _vm._v(" "),
-                  _c("h2", { staticClass: "mb-4" }, [_vm._v("Our Projects")]),
+                  _c("h2", { staticClass: "mb-4" }, [_vm._v("Projects")]),
                   _vm._v(" "),
                   _c("p", [
                     _vm._v(
@@ -71312,16 +71332,14 @@ var render = function() {
     _c(
       "section",
       {
-        staticClass: "ftco-section contact-section ftco-no-pb",
+        staticClass: "ftco-section contact-section py-5",
         attrs: { id: "contact-section" }
       },
       [
         _c("div", { staticClass: "container" }, [
           _c("div", { staticClass: "row justify-content-center mb-5 pb-3" }, [
             _c("div", { staticClass: "col-md-7 heading-section text-center" }, [
-              _c("h1", { staticClass: "big big-2" }, [_vm._v("Contact")]),
-              _vm._v(" "),
-              _c("h2", { staticClass: "mb-4" }, [_vm._v("Contact Me")]),
+              _c("h2", { staticClass: "mb-4" }, [_vm._v("Get in touch")]),
               _vm._v(" "),
               _c("p", [
                 _vm._v(
@@ -90318,11 +90336,6 @@ new vue__WEBPACK_IMPORTED_MODULE_1___default.a({
         }
       }
     });
-  },
-  filters: {
-    format: function format(value, arg1) {
-      return moment__WEBPACK_IMPORTED_MODULE_7___default()(String(value)).format(arg1);
-    }
   }
 }).$mount(app);
 
@@ -90640,6 +90653,24 @@ jquery__WEBPACK_IMPORTED_MODULE_0___default()(document).ready(function () {
   function percentageToDegrees(percentage) {
     return percentage / 100 * 360;
   }
+
+  function onScroll() {
+    var scrollHeight = jquery__WEBPACK_IMPORTED_MODULE_0___default()(document).scrollTop();
+    jquery__WEBPACK_IMPORTED_MODULE_0___default()('.navbar-nav a').each(function () {
+      var currLink = jquery__WEBPACK_IMPORTED_MODULE_0___default()(this);
+      var href = jquery__WEBPACK_IMPORTED_MODULE_0___default()(currLink.attr("href"));
+
+      if (jquery__WEBPACK_IMPORTED_MODULE_0___default()(href).position().top <= scrollHeight + 70 && jquery__WEBPACK_IMPORTED_MODULE_0___default()(href).position().top + jquery__WEBPACK_IMPORTED_MODULE_0___default()(href).height() > scrollHeight) {
+        jquery__WEBPACK_IMPORTED_MODULE_0___default()('nav a').removeClass("active");
+        currLink.addClass("active");
+      } else {
+        currLink.removeClass("active");
+      }
+    });
+  }
+
+  jquery__WEBPACK_IMPORTED_MODULE_0___default()(document).on("scroll", onScroll);
+  onScroll();
 });
 
 /***/ }),

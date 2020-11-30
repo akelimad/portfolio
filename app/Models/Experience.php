@@ -15,4 +15,9 @@ class Experience extends Model
     {
         return date('Y-m-d', strtotime($value));
     }
+
+    public function getEnddateAttribute($value)
+    {
+        return !is_null($value) ? date('Y-m-d', strtotime($value)) : '';
+    }
 }
