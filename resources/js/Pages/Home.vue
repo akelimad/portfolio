@@ -176,17 +176,18 @@
             </div>
             <div id="page-4" class= "page four">
               <h2 class="heading">Certifications</h2>
-              <div class="resume-wrap d-flex">
+              <div v-for="certif in this.certifsData" :key="certif.id" class="resume-wrap d-flex">
                 <div class="icon d-flex align-items-center justify-content-center">
                   <span class="fa fa-certificate"></span>
                 </div>
                 <div class="text pl-3">
-                  <span class="date">2014-2015</span>
-                  <h2>Top 10 Web Developer</h2>
-                  <span class="position">Cambridge University</span>
-                  <p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
+                  <span class="date">{{ certif.obtention_date }}</span>
+                  <h2>{{ certif.title }}</h2>
+                  <span class="position">{{ certif.delivred_by }}</span>
+                  <p>{{ certif.description }}</p>
                 </div>
               </div>
+              <p v-if="this.certifsData.length == 0" class="alert alert-info">No result foud!</p>
             </div>
           </div>
         </div>
@@ -336,15 +337,15 @@
 
   export default {
     created () {
-      
     },
     data () {
       return {
         formationsData: this.formations,
         experiencesData: this.experiences,
+        certifsData: this.certifications,
       }
     },
-    props: ["formations", "experiences"],
+    props: ["formations", "experiences", "certifications"],
     components: {
       GuestLayout
     },

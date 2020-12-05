@@ -32,6 +32,11 @@ Route::get('/experiences/form/{id?}', [ExperienceController::class, 'form'])->na
 Route::post('/experiences/form/store', [ExperienceController::class, 'store'])->name('experiences.store');
 Route::any('/experiences/{experience}/delete', [ExperienceController::class, 'delete'])->name('experiences.delete');
 
+Route::get('/certifications', [CertificationController::class, 'index'])->name('certifications');
+Route::get('/certifications/form/{id?}', [CertificationController::class, 'form'])->name('certifications.form');
+Route::post('/certifications/form/store', [CertificationController::class, 'store'])->name('certifications.store');
+Route::any('/certifications/{experience}/delete', [CertificationController::class, 'delete'])->name('certifications.delete');
+
 
 Route::get('/experiences', [ExperienceController::class, 'index'])->name('experiences');
 Route::get('/skills', [SkillController::class, 'index'])->name('skills');

@@ -49,4 +49,5 @@ class FormationController extends Controller
     $formation->delete();
     return Redirect::route('formations')->with('success', 'Deleted successfully');
   }
+  
 }

@@ -3368,10 +3368,73 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {};
+  },
   components: {
     AdminLayout: _Layouts_AdminLayout__WEBPACK_IMPORTED_MODULE_0__["default"]
+  },
+  props: ["certifications", "flash"],
+  methods: {
+    remove: function remove(id) {
+      var _this = this;
+
+      this.$confirm("Are you sure?").then(function () {
+        _this.$inertia.post("/certifications/" + id + "/delete", {});
+
+        setTimeout(function () {
+          if (_this.flash.success != null) {
+            _this.$toastr.s(_this.flash.success);
+          }
+        }, 1000);
+      });
+    }
+  },
+  mounted: function mounted() {
+    if (this.flash.success != null) {
+      this.$toastr.s(this.flash.success);
+    }
   }
 });
 
@@ -4128,16 +4191,18 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   created: function created() {},
   data: function data() {
     return {
       formationsData: this.formations,
-      experiencesData: this.experiences
+      experiencesData: this.experiences,
+      certifsData: this.certifications
     };
   },
-  props: ["formations", "experiences"],
+  props: ["formations", "experiences", "certifications"],
   components: {
     GuestLayout: _Layouts_GuestLayout__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
@@ -69704,9 +69769,115 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("admin-layout", [
-    _c("div", { staticClass: "container mx-auto px-6 py-8" }, [
-      _c("h3", { staticClass: "text-gray-700 text-3xl font-medium" }, [
-        _vm._v("Certifications")
+    _c(
+      "div",
+      { staticClass: "flex justify-content-between items-center mb-3" },
+      [
+        _c("h3", { staticClass: "text-gray-700 text-3xl font-medium m-0" }, [
+          _c("i", { staticClass: "fa fa-certificate" }),
+          _vm._v(" Certifications")
+        ]),
+        _vm._v(" "),
+        _c(
+          "inertia-link",
+          {
+            class: "px-3 py-1 bg-success text-white rounded",
+            attrs: { href: "/certifications/form" }
+          },
+          [_c("i", { staticClass: "fa fa-plus" }), _vm._v(" Add new")]
+        )
+      ],
+      1
+    ),
+    _vm._v(" "),
+    _c("div", { staticClass: "table-box bg-white" }, [
+      _c("table", { staticClass: "table-auto w-full" }, [
+        _c("thead", [
+          _c("tr", [
+            _c("th", { staticClass: "border px-4 py-2" }, [_vm._v("Title")]),
+            _vm._v(" "),
+            _c("th", { staticClass: "border px-4 py-2" }, [
+              _vm._v("Delivred by")
+            ]),
+            _vm._v(" "),
+            _c("th", { staticClass: "border px-4 py-2" }, [
+              _vm._v("Obtention date")
+            ]),
+            _vm._v(" "),
+            _c("th", { staticClass: "border px-4 py-2 text-center" }, [
+              _vm._v("Actions")
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c(
+          "tbody",
+          [
+            _vm._l(_vm.certifications, function(certification) {
+              return _c("tr", { key: certification.id }, [
+                _c(
+                  "td",
+                  {
+                    staticClass: "border px-4 py-2",
+                    attrs: { title: certification.title }
+                  },
+                  [_vm._v(_vm._s(_vm._f("truncate")(certification.title, 30)))]
+                ),
+                _vm._v(" "),
+                _c("td", { staticClass: "border px-4 py-2" }, [
+                  _vm._v(_vm._s(certification.delivred_by))
+                ]),
+                _vm._v(" "),
+                _c("td", { staticClass: "border px-4 py-2" }, [
+                  _vm._v(_vm._s(certification.obtention_date))
+                ]),
+                _vm._v(" "),
+                _c("td", { staticClass: "border px-4 py-2 text-center" }, [
+                  _c(
+                    "a",
+                    {
+                      staticClass:
+                        "rounded bg-gray-200 hover:bg-gray-300 py-1 px-3 text-black",
+                      attrs: {
+                        href: "/certifications/form/" + certification.id
+                      }
+                    },
+                    [_c("i", { staticClass: "fa fa-pencil" })]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "a",
+                    {
+                      staticClass:
+                        "rounded bg-gray-200 hover:bg-gray-300 py-1 px-3 text-black",
+                      attrs: { href: "javascript:void(0)" },
+                      on: {
+                        click: function($event) {
+                          return _vm.remove(certification.id)
+                        }
+                      }
+                    },
+                    [_c("i", { staticClass: "fa fa-trash" })]
+                  )
+                ])
+              ])
+            }),
+            _vm._v(" "),
+            _vm.certifications.length == 0
+              ? _c("tr", [
+                  _c(
+                    "td",
+                    {
+                      staticClass: "border px-4 py-2 text-center",
+                      attrs: { colspan: "4" }
+                    },
+                    [_vm._v("\n            No results found\n          ")]
+                  )
+                ])
+              : _vm._e()
+          ],
+          2
+        )
       ])
     ])
   ])
@@ -71117,38 +71288,53 @@ var render = function() {
                 ]
               ),
               _vm._v(" "),
-              _c("div", { staticClass: "page four", attrs: { id: "page-4" } }, [
-                _c("h2", { staticClass: "heading" }, [
-                  _vm._v("Certifications")
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "resume-wrap d-flex" }, [
-                  _c(
-                    "div",
-                    {
-                      staticClass:
-                        "icon d-flex align-items-center justify-content-center"
-                    },
-                    [_c("span", { staticClass: "fa fa-certificate" })]
-                  ),
+              _c(
+                "div",
+                { staticClass: "page four", attrs: { id: "page-4" } },
+                [
+                  _c("h2", { staticClass: "heading" }, [
+                    _vm._v("Certifications")
+                  ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "text pl-3" }, [
-                    _c("span", { staticClass: "date" }, [_vm._v("2014-2015")]),
-                    _vm._v(" "),
-                    _c("h2", [_vm._v("Top 10 Web Developer")]),
-                    _vm._v(" "),
-                    _c("span", { staticClass: "position" }, [
-                      _vm._v("Cambridge University")
-                    ]),
-                    _vm._v(" "),
-                    _c("p", [
-                      _vm._v(
-                        "A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth."
-                      )
-                    ])
-                  ])
-                ])
-              ])
+                  _vm._l(this.certifsData, function(certif) {
+                    return _c(
+                      "div",
+                      { key: certif.id, staticClass: "resume-wrap d-flex" },
+                      [
+                        _c(
+                          "div",
+                          {
+                            staticClass:
+                              "icon d-flex align-items-center justify-content-center"
+                          },
+                          [_c("span", { staticClass: "fa fa-certificate" })]
+                        ),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "text pl-3" }, [
+                          _c("span", { staticClass: "date" }, [
+                            _vm._v(_vm._s(certif.obtention_date))
+                          ]),
+                          _vm._v(" "),
+                          _c("h2", [_vm._v(_vm._s(certif.title))]),
+                          _vm._v(" "),
+                          _c("span", { staticClass: "position" }, [
+                            _vm._v(_vm._s(certif.delivred_by))
+                          ]),
+                          _vm._v(" "),
+                          _c("p", [_vm._v(_vm._s(certif.description))])
+                        ])
+                      ]
+                    )
+                  }),
+                  _vm._v(" "),
+                  this.certifsData.length == 0
+                    ? _c("p", { staticClass: "alert alert-info" }, [
+                        _vm._v("No result foud!")
+                      ])
+                    : _vm._e()
+                ],
+                2
+              )
             ])
           ])
         ])
