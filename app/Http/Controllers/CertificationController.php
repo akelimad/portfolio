@@ -29,7 +29,7 @@ class CertificationController extends Controller
       $certification = new Certification();
     }
 
-    return Inertia::render('Formations/Form', compact('certification'));
+    return Inertia::render('Certifications/Form', compact('certification'));
   }
 
   public function store(CertificationRequest $request)

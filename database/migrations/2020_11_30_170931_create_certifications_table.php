@@ -18,7 +18,7 @@ class CreateCertificationsTable extends Migration
             $table->string('title');
             $table->string('obtention_date');
             $table->string('delivred_by');
-            $table->text('description');
+            $table->text('description')->nullable();
             $table->timestamps();
         });
     }

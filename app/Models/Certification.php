@@ -8,4 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Certification extends Model
 {
     use HasFactory;
+
+    protected $fillable = ['title', 'obtention_date', 'delivred_by', 'description'];
 }
