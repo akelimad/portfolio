@@ -2970,58 +2970,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-/* harmony default export */ __webpack_exports__["default"] = ({});
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      year: moment().format('YYYY')
+    };
+  }
+});
 
 /***/ }),
 
@@ -3858,6 +3813,26 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Layouts_GuestLayout__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/Layouts/GuestLayout */ "./resources/js/Layouts/GuestLayout.vue");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -68717,7 +68692,26 @@ var render = function() {
     _vm._v(" "),
     _c("div", { staticClass: "content" }, [_vm._t("default")], 2),
     _vm._v(" "),
-    _vm._m(1),
+    _c("footer", { staticClass: "bg-black p-5" }, [
+      _c("div", { staticClass: "container" }, [
+        _c("div", { staticClass: "row" }, [
+          _c("div", { staticClass: "col-md-12 text-center" }, [
+            _c("p", { staticClass: "m-0" }, [
+              _vm._v(
+                "\n            Copyright © " +
+                  _vm._s(_vm.year) +
+                  " All rights reserved | made with "
+              ),
+              _c("i", {
+                staticClass: "fa fa-heart text-danger",
+                attrs: { "aria-hidden": "true" }
+              }),
+              _vm._v(" by Imad AKEL")
+            ])
+          ])
+        ])
+      ])
+    ]),
     _vm._v(" "),
     _c(
       "div",
@@ -68860,200 +68854,6 @@ var staticRenderFns = [
         ])
       ]
     )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("footer", { staticClass: "ftco-footer ftco-section" }, [
-      _c("div", { staticClass: "container" }, [
-        _c("div", { staticClass: "row mb-5" }, [
-          _c("div", { staticClass: "col-md" }, [
-            _c("div", { staticClass: "ftco-footer-widget mb-4" }, [
-              _c("h2", { staticClass: "ftco-heading-2" }, [_vm._v("About")]),
-              _vm._v(" "),
-              _c("p", [
-                _vm._v(
-                  "Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts."
-                )
-              ]),
-              _vm._v(" "),
-              _c(
-                "ul",
-                {
-                  staticClass:
-                    "ftco-footer-social list-unstyled float-md-left float-lft mt-5"
-                },
-                [
-                  _c("li", { staticClass: "ftco-animate" }, [
-                    _c("a", { attrs: { href: "#" } }, [
-                      _c("span", { staticClass: "icon-twitter" })
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("li", { staticClass: "ftco-animate" }, [
-                    _c("a", { attrs: { href: "#" } }, [
-                      _c("span", { staticClass: "icon-facebook" })
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("li", { staticClass: "ftco-animate" }, [
-                    _c("a", { attrs: { href: "#" } }, [
-                      _c("span", { staticClass: "icon-instagram" })
-                    ])
-                  ])
-                ]
-              )
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "col-md" }, [
-            _c("div", { staticClass: "ftco-footer-widget mb-4 ml-md-4" }, [
-              _c("h2", { staticClass: "ftco-heading-2" }, [_vm._v("Links")]),
-              _vm._v(" "),
-              _c("ul", { staticClass: "list-unstyled" }, [
-                _c("li", [
-                  _c("a", { attrs: { href: "#" } }, [
-                    _c("span", { staticClass: "icon-long-arrow-right mr-2" }),
-                    _vm._v("Home")
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("li", [
-                  _c("a", { attrs: { href: "#" } }, [
-                    _c("span", { staticClass: "icon-long-arrow-right mr-2" }),
-                    _vm._v("About")
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("li", [
-                  _c("a", { attrs: { href: "#" } }, [
-                    _c("span", { staticClass: "icon-long-arrow-right mr-2" }),
-                    _vm._v("Services")
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("li", [
-                  _c("a", { attrs: { href: "#" } }, [
-                    _c("span", { staticClass: "icon-long-arrow-right mr-2" }),
-                    _vm._v("Projects")
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("li", [
-                  _c("a", { attrs: { href: "#" } }, [
-                    _c("span", { staticClass: "icon-long-arrow-right mr-2" }),
-                    _vm._v("Contact")
-                  ])
-                ])
-              ])
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "col-md" }, [
-            _c("div", { staticClass: "ftco-footer-widget mb-4" }, [
-              _c("h2", { staticClass: "ftco-heading-2" }, [_vm._v("Services")]),
-              _vm._v(" "),
-              _c("ul", { staticClass: "list-unstyled" }, [
-                _c("li", [
-                  _c("a", { attrs: { href: "#" } }, [
-                    _c("span", { staticClass: "icon-long-arrow-right mr-2" }),
-                    _vm._v("Web Design")
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("li", [
-                  _c("a", { attrs: { href: "#" } }, [
-                    _c("span", { staticClass: "icon-long-arrow-right mr-2" }),
-                    _vm._v("Web Development")
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("li", [
-                  _c("a", { attrs: { href: "#" } }, [
-                    _c("span", { staticClass: "icon-long-arrow-right mr-2" }),
-                    _vm._v("Business Strategy")
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("li", [
-                  _c("a", { attrs: { href: "#" } }, [
-                    _c("span", { staticClass: "icon-long-arrow-right mr-2" }),
-                    _vm._v("Data Analysis")
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("li", [
-                  _c("a", { attrs: { href: "#" } }, [
-                    _c("span", { staticClass: "icon-long-arrow-right mr-2" }),
-                    _vm._v("Graphic Design")
-                  ])
-                ])
-              ])
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "col-md" }, [
-            _c("div", { staticClass: "ftco-footer-widget mb-4" }, [
-              _c("h2", { staticClass: "ftco-heading-2" }, [
-                _vm._v("Have a Questions?")
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "block-23 mb-3" }, [
-                _c("ul", [
-                  _c("li", [
-                    _c("span", { staticClass: "icon icon-map-marker" }),
-                    _c("span", { staticClass: "text" }, [
-                      _vm._v(
-                        "203 Fake St. Mountain View, San Francisco, California, USA"
-                      )
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("li", [
-                    _c("a", { attrs: { href: "#" } }, [
-                      _c("span", { staticClass: "icon icon-phone" }),
-                      _c("span", { staticClass: "text" }, [
-                        _vm._v("+2 392 3929 210")
-                      ])
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("li", [
-                    _c("a", { attrs: { href: "#" } }, [
-                      _c("span", { staticClass: "icon icon-envelope" }),
-                      _c("span", { staticClass: "text" }, [
-                        _vm._v("info@yourdomain.com")
-                      ])
-                    ])
-                  ])
-                ])
-              ])
-            ])
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "row" }, [
-          _c("div", { staticClass: "col-md-12 text-center" }, [
-            _c("p", [
-              _vm._v(
-                "\n            Copyright © 2020 All rights reserved | This template is made with "
-              ),
-              _c("i", {
-                staticClass: "icon-heart color-danger",
-                attrs: { "aria-hidden": "true" }
-              }),
-              _vm._v(" by "),
-              _c(
-                "a",
-                { attrs: { href: "https://colorlib.com", target: "_blank" } },
-                [_vm._v("Colorlib")]
-              )
-            ])
-          ])
-        ])
-      ])
-    ])
   }
 ]
 render._withStripped = true
@@ -70834,7 +70634,7 @@ var render = function() {
                 [
                   _c("div", { staticClass: "text text-center" }, [
                     _c("span", { staticClass: "subheading" }, [
-                      _vm._v("Hey! I am")
+                      _vm._v("Hey! I'm")
                     ]),
                     _vm._v(" "),
                     _c("h1", [_vm._v("Imad AKEL")]),
@@ -71528,9 +71328,7 @@ var render = function() {
               _c("h2", { staticClass: "mb-4" }, [_vm._v("Get in touch")]),
               _vm._v(" "),
               _c("p", [
-                _vm._v(
-                  "Far far away, behind the word mountains, far from the countries Vokalia and Consonantia"
-                )
+                _vm._v("If you have any question, feel free to contact me")
               ])
             ])
           ]),
@@ -71545,11 +71343,7 @@ var render = function() {
                     ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "pull-left ml-3" }, [
-                      _c("p", [
-                        _vm._v(
-                          "198 West 21th Street, Suite 721 New York NY 10016"
-                        )
-                      ])
+                      _c("p", [_vm._v("4029, Lot wafik, Temara, Morocco")])
                     ])
                   ])
                 ]),
@@ -71562,8 +71356,8 @@ var render = function() {
                     _vm._v(" "),
                     _c("div", { staticClass: "pull-left ml-3" }, [
                       _c("p", [
-                        _c("a", { attrs: { href: "tel://1234567920" } }, [
-                          _vm._v("+ 1235 2355 98")
+                        _c("a", { attrs: { href: "tel:+212 6 06 83 30 78" } }, [
+                          _vm._v("+212 6 06 83 30 78")
                         ])
                       ])
                     ])
@@ -71580,8 +71374,46 @@ var render = function() {
                       _c("p", [
                         _c(
                           "a",
-                          { attrs: { href: "mailto:info@yoursite.com" } },
-                          [_vm._v("info@yoursite.com")]
+                          { attrs: { href: "mailto:akel.dev@gmail.com" } },
+                          [_vm._v("akel.dev@gmail.com")]
+                        )
+                      ])
+                    ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-12 mb-3" }, [
+                  _c("div", { staticClass: "box text-center overflow-auto" }, [
+                    _c("div", { staticClass: "icon pull-left mr-40" }, [
+                      _c("span", { staticClass: "fa fa-facebook" })
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "pull-left ml-3" }, [
+                      _c("p", [
+                        _c(
+                          "a",
+                          {
+                            attrs: { href: "https://www.facebook.com/iakel3" }
+                          },
+                          [_vm._v("https://www.facebook.com/iakel3")]
+                        )
+                      ])
+                    ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-12 mb-3" }, [
+                  _c("div", { staticClass: "box text-center overflow-auto" }, [
+                    _c("div", { staticClass: "icon pull-left mr-40" }, [
+                      _c("span", { staticClass: "fa fa-github" })
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "pull-left ml-3" }, [
+                      _c("p", [
+                        _c(
+                          "a",
+                          { attrs: { href: "https://github.com/akelimad" } },
+                          [_vm._v("https://github.com/akelimad")]
                         )
                       ])
                     ])

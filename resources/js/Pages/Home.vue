@@ -7,7 +7,7 @@
         <div class="row no-gutters slider-text js-fullheight justify-content-center align-items-center">
           <div class="col-lg-8 col-md-6 d-flex align-items-center">
             <div class="text text-center">
-              <span class="subheading">Hey! I am</span>
+              <span class="subheading">Hey! I'm</span>
               <h1>Imad AKEL</h1>
               <h2>I'm a <span class="txt-rotate" data-period="2000" data-rotate='["Developer."]'></span></h2>
             </div>
@@ -267,7 +267,7 @@
         <div class="row justify-content-center mb-5 pb-3">
           <div class="col-md-7 heading-section text-center">
             <h2 class="mb-4">Get in touch</h2>
-            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia</p>
+            <p>If you have any question, feel free to contact me</p>
           </div>
         </div>
 
@@ -280,7 +280,7 @@
                     <span class="fa fa-home"></span>
                   </div>
                   <div class="pull-left ml-3">
-                    <p>198 West 21th Street, Suite 721 New York NY 10016</p>
+                    <p>4029, Lot wafik, Temara, Morocco</p>
                   </div>
                 </div>
               </div>
@@ -290,7 +290,7 @@
                     <span class="fa fa-phone"></span>
                   </div>
                   <div class="pull-left ml-3">
-                    <p><a href="tel://1234567920">+ 1235 2355 98</a></p>
+                    <p><a href="tel:+212 6 06 83 30 78">+212 6 06 83 30 78</a></p>
                   </div>
                 </div>
               </div>
@@ -300,7 +300,27 @@
                     <span class="fa fa-envelope"></span>
                   </div>
                   <div class="pull-left ml-3">
-                    <p><a href="mailto:info@yoursite.com">info@yoursite.com</a></p>
+                    <p><a href="mailto:akel.dev@gmail.com">akel.dev@gmail.com</a></p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 mb-3">
+                <div class="box text-center overflow-auto">
+                  <div class="icon pull-left mr-40">
+                    <span class="fa fa-facebook"></span>
+                  </div>
+                  <div class="pull-left ml-3">
+                    <p><a href="https://www.facebook.com/iakel3">https://www.facebook.com/iakel3</a></p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 mb-3">
+                <div class="box text-center overflow-auto">
+                  <div class="icon pull-left mr-40">
+                    <span class="fa fa-github"></span>
+                  </div>
+                  <div class="pull-left ml-3">
+                    <p><a href="https://github.com/akelimad">https://github.com/akelimad</a></p>
                   </div>
                 </div>
               </div>
