@@ -4245,12 +4245,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   created: function created() {},
@@ -71080,7 +71074,7 @@ var render = function() {
                         staticClass: "number",
                         attrs: { "data-number": "120" }
                       },
-                      [_vm._v("0")]
+                      [_vm._v("6")]
                     ),
                     _vm._v(" "),
                     _c("span", [_vm._v("Project complete")])
@@ -71470,7 +71464,7 @@ var render = function() {
       "section",
       { staticClass: "ftco-section py-5", attrs: { id: "projects-section" } },
       [
-        _c("div", { staticClass: "container-fluid px-md-0" }, [
+        _c("div", { staticClass: "container" }, [
           _c(
             "div",
             { staticClass: "row no-gutters justify-content-center pb-5" },
@@ -71491,13 +71485,13 @@ var render = function() {
             ]
           ),
           _vm._v(" "),
-          _c("div", { staticClass: "row no-gutters" }, [
-            _c("div", { staticClass: "col-md-4" }, [
+          _c("div", { staticClass: "row" }, [
+            _c("div", { staticClass: "col-md-4 mb-3" }, [
               _c(
                 "div",
                 {
                   staticClass:
-                    "project img d-flex justify-content-center align-items-center",
+                    "project img d-flex justify-content-center align-items-center project-item",
                   staticStyle: { "background-image": "url(images/work-1.jpg)" }
                 },
                 [
@@ -71506,22 +71500,20 @@ var render = function() {
                   _c("div", { staticClass: "text text-center p-4" }, [
                     _c("h3", [
                       _c("a", { attrs: { href: "#" } }, [
-                        _vm._v("Branding & Illustration Design")
+                        _vm._v("View website")
                       ])
-                    ]),
-                    _vm._v(" "),
-                    _c("span", [_vm._v("Web Design")])
+                    ])
                   ])
                 ]
               )
             ]),
             _vm._v(" "),
-            _c("div", { staticClass: "col-md-4" }, [
+            _c("div", { staticClass: "col-md-4 mb-3" }, [
               _c(
                 "div",
                 {
                   staticClass:
-                    "project img d-flex justify-content-center align-items-center",
+                    "project img d-flex justify-content-center align-items-center project-item",
                   staticStyle: { "background-image": "url(images/work-2.jpg)" }
                 },
                 [
@@ -71530,22 +71522,20 @@ var render = function() {
                   _c("div", { staticClass: "text text-center p-4" }, [
                     _c("h3", [
                       _c("a", { attrs: { href: "#" } }, [
-                        _vm._v("Branding & Illustration Design")
+                        _vm._v("View website")
                       ])
-                    ]),
-                    _vm._v(" "),
-                    _c("span", [_vm._v("Web Design")])
+                    ])
                   ])
                 ]
               )
             ]),
             _vm._v(" "),
-            _c("div", { staticClass: "col-md-4" }, [
+            _c("div", { staticClass: "col-md-4 mb-3" }, [
               _c(
                 "div",
                 {
                   staticClass:
-                    "project img d-flex justify-content-center align-items-center",
+                    "project img d-flex justify-content-center align-items-center project-item",
                   staticStyle: { "background-image": "url(images/work-3.jpg)" }
                 },
                 [
@@ -71554,22 +71544,20 @@ var render = function() {
                   _c("div", { staticClass: "text text-center p-4" }, [
                     _c("h3", [
                       _c("a", { attrs: { href: "#" } }, [
-                        _vm._v("Branding & Illustration Design")
+                        _vm._v("View website")
                       ])
-                    ]),
-                    _vm._v(" "),
-                    _c("span", [_vm._v("Web Design")])
+                    ])
                   ])
                 ]
               )
             ]),
             _vm._v(" "),
-            _c("div", { staticClass: "col-md-4" }, [
+            _c("div", { staticClass: "col-md-4 mb-3" }, [
               _c(
                 "div",
                 {
                   staticClass:
-                    "project img d-flex justify-content-center align-items-center",
+                    "project img d-flex justify-content-center align-items-center project-item",
                   staticStyle: { "background-image": "url(images/work-4.jpg)" }
                 },
                 [
@@ -71578,22 +71566,20 @@ var render = function() {
                   _c("div", { staticClass: "text text-center p-4" }, [
                     _c("h3", [
                       _c("a", { attrs: { href: "#" } }, [
-                        _vm._v("Branding & Illustration Design")
+                        _vm._v("View website")
                       ])
-                    ]),
-                    _vm._v(" "),
-                    _c("span", [_vm._v("Web Design")])
+                    ])
                   ])
                 ]
               )
             ]),
             _vm._v(" "),
-            _c("div", { staticClass: "col-md-4" }, [
+            _c("div", { staticClass: "col-md-4 mb-3" }, [
               _c(
                 "div",
                 {
                   staticClass:
-                    "project img d-flex justify-content-center align-items-center",
+                    "project img d-flex justify-content-center align-items-center project-item",
                   staticStyle: { "background-image": "url(images/work-5.jpg)" }
                 },
                 [
@@ -71602,22 +71588,20 @@ var render = function() {
                   _c("div", { staticClass: "text text-center p-4" }, [
                     _c("h3", [
                       _c("a", { attrs: { href: "#" } }, [
-                        _vm._v("Branding & Illustration Design")
+                        _vm._v("View website")
                       ])
-                    ]),
-                    _vm._v(" "),
-                    _c("span", [_vm._v("Web Design")])
+                    ])
                   ])
                 ]
               )
             ]),
             _vm._v(" "),
-            _c("div", { staticClass: "col-md-4" }, [
+            _c("div", { staticClass: "col-md-4 mb-3" }, [
               _c(
                 "div",
                 {
                   staticClass:
-                    "project img d-flex justify-content-center align-items-center",
+                    "project img d-flex justify-content-center align-items-center project-item",
                   staticStyle: { "background-image": "url(images/work-6.jpg)" }
                 },
                 [
@@ -71626,11 +71610,9 @@ var render = function() {
                   _c("div", { staticClass: "text text-center p-4" }, [
                     _c("h3", [
                       _c("a", { attrs: { href: "#" } }, [
-                        _vm._v("Branding & Illustration Design")
+                        _vm._v("View website")
                       ])
-                    ]),
-                    _vm._v(" "),
-                    _c("span", [_vm._v("Web Design")])
+                    ])
                   ])
                 ]
               )
