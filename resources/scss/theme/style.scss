@@ -3498,12 +3498,23 @@ input[type="button"].btn-block {
   align-items: center; }
 
 .navbar-toggler {
-  padding: 0.25rem 0.75rem;
+  padding: 0;
+  width: 26px;
   font-size: 1.25rem;
   line-height: 1;
   background-color: transparent;
   border: 1px solid transparent;
-  border-radius: 0.25rem; }
+  border-radius: 0.25rem; 
+  span {
+    background: #3e64ff;
+    height: 1px;
+    display: block;
+    margin-bottom: 7px;
+  }
+  span:last-child {
+    margin-bottom: 0px;
+  }
+}
 .navbar-toggler:hover, .navbar-toggler:focus {
   text-decoration: none; }
 
@@ -9675,4 +9686,9 @@ textarea.form-control {
   content: "*";
   color: red;
   margin-left: 3px;
+}
+@media (max-width: 576px) {
+  .about-image-col {
+    display: none !important;
+  }
 }

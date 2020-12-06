@@ -21,13 +21,13 @@
       </div>
     </section>
 
-    <section class="ftco-section img ftco-about py-5" id="about-section">
+    <section class="ftco-section img ftco-about py-5 overflow-auto" id="about-section">
       <div class="container">
         <div class="row d-flex no-gutters">
-          <div class="col-md-6 col-lg-6 d-flex">
+          <div class="col-md-6 col-lg-6 d-flex about-image-col">
             <div class="img-about img d-flex align-items-stretch">
               <div class="overlay"></div>
-              <div class="img d-flex align-self-stretch align-items-center" style="background-image:url(images/about.png);">
+              <div class="img d-flex align-self-stretch align-items-center" style="background-image:url(images/about.png); margin-top:-116px;">
               </div>
             </div>
           </div>

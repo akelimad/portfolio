@@ -2970,6 +2970,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -68783,7 +68785,7 @@ var staticRenderFns = [
                 "aria-label": "Toggle navigation"
               }
             },
-            [_c("span", { staticClass: "oi oi-menu" }), _vm._v(" Menu\n      ")]
+            [_c("span"), _vm._v(" "), _c("span"), _vm._v(" "), _c("span")]
           ),
           _vm._v(" "),
           _c(
@@ -70673,27 +70675,34 @@ var render = function() {
     _c(
       "section",
       {
-        staticClass: "ftco-section img ftco-about py-5",
+        staticClass: "ftco-section img ftco-about py-5 overflow-auto",
         attrs: { id: "about-section" }
       },
       [
         _c("div", { staticClass: "container" }, [
           _c("div", { staticClass: "row d-flex no-gutters" }, [
-            _c("div", { staticClass: "col-md-6 col-lg-6 d-flex" }, [
-              _c(
-                "div",
-                { staticClass: "img-about img d-flex align-items-stretch" },
-                [
-                  _c("div", { staticClass: "overlay" }),
-                  _vm._v(" "),
-                  _c("div", {
-                    staticClass:
-                      "img d-flex align-self-stretch align-items-center",
-                    staticStyle: { "background-image": "url(images/about.png)" }
-                  })
-                ]
-              )
-            ]),
+            _c(
+              "div",
+              { staticClass: "col-md-6 col-lg-6 d-flex about-image-col" },
+              [
+                _c(
+                  "div",
+                  { staticClass: "img-about img d-flex align-items-stretch" },
+                  [
+                    _c("div", { staticClass: "overlay" }),
+                    _vm._v(" "),
+                    _c("div", {
+                      staticClass:
+                        "img d-flex align-self-stretch align-items-center",
+                      staticStyle: {
+                        "background-image": "url(images/about.png)",
+                        "margin-top": "-116px"
+                      }
+                    })
+                  ]
+                )
+              ]
+            ),
             _vm._v(" "),
             _c("div", { staticClass: "col-md-6 col-lg-6 pl-md-5 py-5" }, [
               _c("div", { staticClass: "row justify-content-start pb-3" }, [
