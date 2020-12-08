@@ -9695,3 +9695,12 @@ textarea.form-control {
     display: none !important;
   }
 }
+.project-tags {
+  padding: 10px;
+  .tag {
+    border: 1px solid gray;
+    border-radius: 10px;
+    padding: 0px 10px;
+    font-size: 13px;
+  }
+}

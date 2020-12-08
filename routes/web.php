@@ -7,6 +7,7 @@ use App\Http\Controllers\FormationController;
 use App\Http\Controllers\ExperienceController;
 use App\Http\Controllers\SkillController;
 use App\Http\Controllers\CertificationController;
+use App\Http\Controllers\ProjectController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,12 +33,19 @@ Route::get('/experiences/form/{id?}', [ExperienceController::class, 'form'])->na
 Route::post('/experiences/form/store', [ExperienceController::class, 'store'])->name('experiences.store');
 Route::any('/experiences/{experience}/delete', [ExperienceController::class, 'delete'])->name('experiences.delete');
 
+Route::get('/skills', [SkillController::class, 'index'])->name('skills');
+
 Route::get('/certifications', [CertificationController::class, 'index'])->name('certifications');
 Route::get('/certifications/form/{id?}', [CertificationController::class, 'form'])->name('certifications.form');
 Route::post('/certifications/form/store', [CertificationController::class, 'store'])->name('certifications.store');
 Route::any('/certifications/{experience}/delete', [CertificationController::class, 'delete'])->name('certifications.delete');
 
-
-Route::get('/experiences', [ExperienceController::class, 'index'])->name('experiences');
-Route::get('/skills', [SkillController::class, 'index'])->name('skills');
 Route::get('/certifications', [CertificationController::class, 'index'])->name('certifications');
+Route::get('/certifications/form/{id?}', [CertificationController::class, 'form'])->name('certifications.form');
+Route::post('/certifications/form/store', [CertificationController::class, 'store'])->name('certifications.store');
+Route::any('/certifications/{experience}/delete', [CertificationController::class, 'delete'])->name('certifications.delete');
+
+Route::get('/projects', [ProjectController::class, 'index'])->name('projects');
+Route::get('/projects/form/{id?}', [ProjectController::class, 'form'])->name('projects.form');
+Route::post('/projects/form/store', [ProjectController::class, 'store'])->name('projects.store');
+Route::any('/projects/{experience}/delete', [ProjectController::class, 'delete'])->name('projects.delete');

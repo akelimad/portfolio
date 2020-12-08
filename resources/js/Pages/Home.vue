@@ -204,51 +204,58 @@
         </div>
         <div class="row">
           <div class="col-md-4 mb-3">
-            <div class="project img d-flex justify-content-center align-items-center project-item" style="background-image: url(images/work-1.jpg);">
-              <div class="overlay"></div>
-              <div class="text text-center p-4">
-                <h3><a href="#">View website</a></h3>
+            <div class="inner-content border">
+              <div class="project img d-flex justify-content-center align-items-center project-item" style="background-image: url(images/work-1.jpg);">
+                <div class="overlay"></div>
+                <div class="text text-center p-4">
+                  <h3><a href="#"><i class="fa fa-search"></i> View website</a></h3>
+                </div>
+              </div>
+              <div class="project-tags">
+                <span class="tag">Php</span>
+                <span class="tag">jQuery</span>
+                <span class="tag">Css</span>
               </div>
             </div>
           </div>
           <div class="col-md-4 mb-3">
-            <div class="project img d-flex justify-content-center align-items-center project-item" style="background-image: url(images/work-2.jpg);">
+            <div class="project img d-flex justify-content-center align-items-center project-item border" style="background-image: url(images/work-2.jpg);">
               <div class="overlay"></div>
               <div class="text text-center p-4">
-                <h3><a href="#">View website</a></h3>
+                <h3><a href="#"><i class="fa fa-search"></i> View website</a></h3>
               </div>
             </div>
           </div>
 
           <div class="col-md-4 mb-3">
-            <div class="project img d-flex justify-content-center align-items-center project-item" style="background-image: url(images/work-3.jpg);">
+            <div class="project img d-flex justify-content-center align-items-center project-item border" style="background-image: url(images/work-3.jpg);">
               <div class="overlay"></div>
               <div class="text text-center p-4">
-                <h3><a href="#">View website</a></h3>
+                <h3><a href="#"><i class="fa fa-search"></i> View website</a></h3>
               </div>
             </div>
           </div>
           <div class="col-md-4 mb-3">
-            <div class="project img d-flex justify-content-center align-items-center project-item" style="background-image: url(images/work-4.jpg);">
+            <div class="project img d-flex justify-content-center align-items-center project-item border" style="background-image: url(images/work-4.jpg);">
               <div class="overlay"></div>
               <div class="text text-center p-4">
-                <h3><a href="#">View website</a></h3>
+                <h3><a href="#"><i class="fa fa-search"></i> View website</a></h3>
               </div>
             </div>
           </div>
           <div class="col-md-4 mb-3">
-            <div class="project img d-flex justify-content-center align-items-center project-item" style="background-image: url(images/work-5.jpg);">
+            <div class="project img d-flex justify-content-center align-items-center project-item border" style="background-image: url(images/work-5.jpg);">
               <div class="overlay"></div>
               <div class="text text-center p-4">
-                <h3><a href="#">View website</a></h3>
+                <h3><a href="#"><i class="fa fa-search"></i> View website</a></h3>
               </div>
             </div>
           </div>
           <div class="col-md-4 mb-3">
-            <div class="project img d-flex justify-content-center align-items-center project-item" style="background-image: url(images/work-6.jpg);">
+            <div class="project img d-flex justify-content-center align-items-center project-item border" style="background-image: url(images/work-6.jpg);">
               <div class="overlay"></div>
               <div class="text text-center p-4">
-                <h3><a href="#">View website</a></h3>
+                <h3><a href="#"><i class="fa fa-search"></i> View website</a></h3>
               </div>
             </div>
           </div>

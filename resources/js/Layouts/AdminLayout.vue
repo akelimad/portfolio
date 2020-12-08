@@ -39,6 +39,11 @@
                             <i class="fa fa-certificate"></i>
                             <span class="mx-3">Certifications</span>
                         </jet-nav-link>
+
+                        <jet-nav-link :href="route('projects')" :active="route().current('projects')">
+                            <i class="fa fa-wrench"></i>
+                            <span class="mx-3">Projects</span>
+                        </jet-nav-link>
                     </nav>
                 </div>
                 <div class="flex-1 flex flex-col overflow-hidden">
