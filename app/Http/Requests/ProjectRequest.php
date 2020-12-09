@@ -29,7 +29,7 @@ class ProjectRequest extends FormRequest
         return [
             'image' => [$imageRule],
             'link' => ['required', 'max:255'],
-            'realized_at' => ['date'],
+            'realized_at' => [],
         ];
     }
 }

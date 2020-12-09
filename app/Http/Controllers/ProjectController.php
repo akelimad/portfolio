@@ -36,6 +36,7 @@ class ProjectController extends Controller
     public function store(ProjectRequest $request)
     {
         $projectRequest = $request->all();
+        $projectRequest['tags'] = json_encode($projectRequest['tags']);
         if (intval($request->id) > 0) {
             $project = Project::find($request->id);
             $projectRequest['image'] = $project->image;

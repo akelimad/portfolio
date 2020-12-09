@@ -21,7 +21,7 @@ export default {
   data () {
     return {
         form: {
-            tags: this.tags
+            tags: this.tags || []
         }
     }
   },

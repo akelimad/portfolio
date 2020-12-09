@@ -48,7 +48,7 @@
             <div class="counter-wrap d-flex mt-md-3">
               <div class="text">
                 <p class="mb-4">
-                  <span class="number" data-number="120">6</span>
+                  <span class="number" data-number="120">{{ projectsData.length }}</span>
                   <span>Project complete</span>
                 </p>
                 <p><a href="/cv-imad-akel.pdf" target="_blank" class="btn btn-primary py-3 px-3">Download CV</a></p>
@@ -199,65 +199,26 @@
         <div class="row no-gutters justify-content-center pb-5">
           <div class="col-md-12 heading-section text-center">
             <h2 class="mb-4">Projects</h2>
-            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia</p>
           </div>
         </div>
         <div class="row">
-          <div class="col-md-4 mb-3">
+          <div v-for="project in this.projectsData" :key="project.id" class="col-md-4 mb-3">
             <div class="inner-content border">
               <div class="project img d-flex justify-content-center align-items-center project-item" style="background-image: url(images/work-1.jpg);">
                 <div class="overlay"></div>
                 <div class="text text-center p-4">
-                  <h3><a href="#"><i class="fa fa-search"></i> View website</a></h3>
+                  <h3><a :href="project.link" target="_blank"><i class="fa fa-search"></i> View website</a></h3>
                 </div>
               </div>
               <div class="project-tags">
-                <span class="tag">Php</span>
-                <span class="tag">jQuery</span>
-                <span class="tag">Css</span>
+                <span v-for="tag in project.tags" :key="tag" class="tag mr-2">
+                  {{ tag }}
+                </span>
               </div>
             </div>
           </div>
-          <div class="col-md-4 mb-3">
-            <div class="project img d-flex justify-content-center align-items-center project-item border" style="background-image: url(images/work-2.jpg);">
-              <div class="overlay"></div>
-              <div class="text text-center p-4">
-                <h3><a href="#"><i class="fa fa-search"></i> View website</a></h3>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-md-4 mb-3">
-            <div class="project img d-flex justify-content-center align-items-center project-item border" style="background-image: url(images/work-3.jpg);">
-              <div class="overlay"></div>
-              <div class="text text-center p-4">
-                <h3><a href="#"><i class="fa fa-search"></i> View website</a></h3>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4 mb-3">
-            <div class="project img d-flex justify-content-center align-items-center project-item border" style="background-image: url(images/work-4.jpg);">
-              <div class="overlay"></div>
-              <div class="text text-center p-4">
-                <h3><a href="#"><i class="fa fa-search"></i> View website</a></h3>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4 mb-3">
-            <div class="project img d-flex justify-content-center align-items-center project-item border" style="background-image: url(images/work-5.jpg);">
-              <div class="overlay"></div>
-              <div class="text text-center p-4">
-                <h3><a href="#"><i class="fa fa-search"></i> View website</a></h3>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4 mb-3">
-            <div class="project img d-flex justify-content-center align-items-center project-item border" style="background-image: url(images/work-6.jpg);">
-              <div class="overlay"></div>
-              <div class="text text-center p-4">
-                <h3><a href="#"><i class="fa fa-search"></i> View website</a></h3>
-              </div>
-            </div>
+          <div v-if="this.projectsData.length == 0" class="col-md-12">
+            <p class="alert alert-info">No result foud!</p>
           </div>
         </div>
       </div>
@@ -364,9 +325,10 @@
         formationsData: this.formations,
         experiencesData: this.experiences,
         certifsData: this.certifications,
+        projectsData: this.projects,
       }
     },
-    props: ["formations", "experiences", "certifications"],
+    props: ["formations", "experiences", "certifications", "projects"],
     components: {
       GuestLayout
     },

@@ -1967,7 +1967,7 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       form: {
-        tags: this.tags
+        tags: this.tags || []
       }
     };
   },
@@ -4279,45 +4279,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   created: function created() {},
@@ -4325,10 +4286,11 @@ __webpack_require__.r(__webpack_exports__);
     return {
       formationsData: this.formations,
       experiencesData: this.experiences,
-      certifsData: this.certifications
+      certifsData: this.certifications,
+      projectsData: this.projects
     };
   },
-  props: ["formations", "experiences", "certifications"],
+  props: ["formations", "experiences", "certifications", "projects"],
   components: {
     GuestLayout: _Layouts_GuestLayout__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
@@ -72121,7 +72083,7 @@ var render = function() {
                         staticClass: "number",
                         attrs: { "data-number": "120" }
                       },
-                      [_vm._v("6")]
+                      [_vm._v(_vm._s(_vm.projectsData.length))]
                     ),
                     _vm._v(" "),
                     _c("span", [_vm._v("Project complete")])
@@ -72519,170 +72481,86 @@ var render = function() {
               _c(
                 "div",
                 { staticClass: "col-md-12 heading-section text-center" },
-                [
-                  _c("h2", { staticClass: "mb-4" }, [_vm._v("Projects")]),
-                  _vm._v(" "),
-                  _c("p", [
-                    _vm._v(
-                      "Far far away, behind the word mountains, far from the countries Vokalia and Consonantia"
-                    )
-                  ])
-                ]
+                [_c("h2", { staticClass: "mb-4" }, [_vm._v("Projects")])]
               )
             ]
           ),
           _vm._v(" "),
-          _c("div", { staticClass: "row" }, [
-            _c("div", { staticClass: "col-md-4 mb-3" }, [
-              _c("div", { staticClass: "inner-content border" }, [
-                _c(
+          _c(
+            "div",
+            { staticClass: "row" },
+            [
+              _vm._l(this.projectsData, function(project) {
+                return _c(
                   "div",
-                  {
-                    staticClass:
-                      "project img d-flex justify-content-center align-items-center project-item",
-                    staticStyle: {
-                      "background-image": "url(images/work-1.jpg)"
-                    }
-                  },
+                  { key: project.id, staticClass: "col-md-4 mb-3" },
                   [
-                    _c("div", { staticClass: "overlay" }),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "text text-center p-4" }, [
-                      _c("h3", [
-                        _c("a", { attrs: { href: "#" } }, [
-                          _c("i", { staticClass: "fa fa-search" }),
-                          _vm._v(" View website")
-                        ])
-                      ])
+                    _c("div", { staticClass: "inner-content border" }, [
+                      _c(
+                        "div",
+                        {
+                          staticClass:
+                            "project img d-flex justify-content-center align-items-center project-item",
+                          staticStyle: {
+                            "background-image": "url(images/work-1.jpg)"
+                          }
+                        },
+                        [
+                          _c("div", { staticClass: "overlay" }),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "text text-center p-4" }, [
+                            _c("h3", [
+                              _c(
+                                "a",
+                                {
+                                  attrs: {
+                                    href: project.link,
+                                    target: "_blank"
+                                  }
+                                },
+                                [
+                                  _c("i", { staticClass: "fa fa-search" }),
+                                  _vm._v(" View website")
+                                ]
+                              )
+                            ])
+                          ])
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        { staticClass: "project-tags" },
+                        _vm._l(project.tags, function(tag) {
+                          return _c(
+                            "span",
+                            { key: tag, staticClass: "tag mr-2" },
+                            [
+                              _vm._v(
+                                "\n                " +
+                                  _vm._s(tag) +
+                                  "\n              "
+                              )
+                            ]
+                          )
+                        }),
+                        0
+                      )
                     ])
                   ]
-                ),
-                _vm._v(" "),
-                _c("div", { staticClass: "project-tags" }, [
-                  _c("span", { staticClass: "tag" }, [_vm._v("Php")]),
-                  _vm._v(" "),
-                  _c("span", { staticClass: "tag" }, [_vm._v("jQuery")]),
-                  _vm._v(" "),
-                  _c("span", { staticClass: "tag" }, [_vm._v("Css")])
-                ])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "col-md-4 mb-3" }, [
-              _c(
-                "div",
-                {
-                  staticClass:
-                    "project img d-flex justify-content-center align-items-center project-item border",
-                  staticStyle: { "background-image": "url(images/work-2.jpg)" }
-                },
-                [
-                  _c("div", { staticClass: "overlay" }),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "text text-center p-4" }, [
-                    _c("h3", [
-                      _c("a", { attrs: { href: "#" } }, [
-                        _c("i", { staticClass: "fa fa-search" }),
-                        _vm._v(" View website")
-                      ])
+                )
+              }),
+              _vm._v(" "),
+              this.projectsData.length == 0
+                ? _c("div", { staticClass: "col-md-12" }, [
+                    _c("p", { staticClass: "alert alert-info" }, [
+                      _vm._v("No result foud!")
                     ])
                   ])
-                ]
-              )
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "col-md-4 mb-3" }, [
-              _c(
-                "div",
-                {
-                  staticClass:
-                    "project img d-flex justify-content-center align-items-center project-item border",
-                  staticStyle: { "background-image": "url(images/work-3.jpg)" }
-                },
-                [
-                  _c("div", { staticClass: "overlay" }),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "text text-center p-4" }, [
-                    _c("h3", [
-                      _c("a", { attrs: { href: "#" } }, [
-                        _c("i", { staticClass: "fa fa-search" }),
-                        _vm._v(" View website")
-                      ])
-                    ])
-                  ])
-                ]
-              )
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "col-md-4 mb-3" }, [
-              _c(
-                "div",
-                {
-                  staticClass:
-                    "project img d-flex justify-content-center align-items-center project-item border",
-                  staticStyle: { "background-image": "url(images/work-4.jpg)" }
-                },
-                [
-                  _c("div", { staticClass: "overlay" }),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "text text-center p-4" }, [
-                    _c("h3", [
-                      _c("a", { attrs: { href: "#" } }, [
-                        _c("i", { staticClass: "fa fa-search" }),
-                        _vm._v(" View website")
-                      ])
-                    ])
-                  ])
-                ]
-              )
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "col-md-4 mb-3" }, [
-              _c(
-                "div",
-                {
-                  staticClass:
-                    "project img d-flex justify-content-center align-items-center project-item border",
-                  staticStyle: { "background-image": "url(images/work-5.jpg)" }
-                },
-                [
-                  _c("div", { staticClass: "overlay" }),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "text text-center p-4" }, [
-                    _c("h3", [
-                      _c("a", { attrs: { href: "#" } }, [
-                        _c("i", { staticClass: "fa fa-search" }),
-                        _vm._v(" View website")
-                      ])
-                    ])
-                  ])
-                ]
-              )
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "col-md-4 mb-3" }, [
-              _c(
-                "div",
-                {
-                  staticClass:
-                    "project img d-flex justify-content-center align-items-center project-item border",
-                  staticStyle: { "background-image": "url(images/work-6.jpg)" }
-                },
-                [
-                  _c("div", { staticClass: "overlay" }),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "text text-center p-4" }, [
-                    _c("h3", [
-                      _c("a", { attrs: { href: "#" } }, [
-                        _c("i", { staticClass: "fa fa-search" }),
-                        _vm._v(" View website")
-                      ])
-                    ])
-                  ])
-                ]
-              )
-            ])
-          ])
+                : _vm._e()
+            ],
+            2
+          )
         ])
       ]
     ),
