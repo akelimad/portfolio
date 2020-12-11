@@ -5154,6 +5154,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -5165,38 +5168,35 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       form: {
-        id: this.project.id,
-        title: this.project.title,
-        description: this.project.description,
-        image: this.project.image,
-        link: this.project.link,
-        realized_at: this.project.realized_at,
-        tags: this.project.tags
+        id: this.project.id || '',
+        title: this.project.title || '',
+        description: this.project.description || '',
+        image: this.project.image || '',
+        link: this.project.link || '',
+        realized_at: this.project.realized_at || '',
+        tags: this.project.tags || ''
       },
       editMode: this.project.id != null
     };
   },
   methods: {
     fileUpload: function fileUpload(e) {
-      var files = e.target.files || e.dataTransfer.files;
-      if (!files.length) return;
-      this.createImage(files[0]);
-    },
-    createImage: function createImage(file) {
-      var reader = new FileReader();
-      var thiss = this;
-
-      reader.onload = function (e) {
-        thiss.form.image = e.target.result;
-      };
-
-      reader.readAsDataURL(file);
+      this.form.image = e.target.files[0];
     },
     tagsUpdated: function tagsUpdated(value) {
       this.form.tags = value.tags;
     },
-    submit: function submit() {
-      this.$inertia.post("/projects/form/store", this.form);
+    submit: function submit(e) {
+      //e.preventDefault();
+      var formData = new FormData();
+      formData.append('id', this.form.id);
+      formData.append('title', this.form.title);
+      formData.append('description', this.form.description);
+      formData.append('image', this.form.image);
+      formData.append('link', this.form.link);
+      formData.append('realized_at', this.form.realized_at);
+      formData.append('tags', this.form.tags);
+      this.$inertia.post("/projects/form/store", formData);
     }
   }
 });
@@ -72495,15 +72495,18 @@ var render = function() {
                   "div",
                   { key: project.id, staticClass: "col-md-4 mb-3" },
                   [
-                    _c("div", { staticClass: "inner-content border" }, [
+                    _c("div", { staticClass: "inner-content border h-100" }, [
                       _c(
                         "div",
                         {
                           staticClass:
                             "project img d-flex justify-content-center align-items-center project-item",
-                          staticStyle: {
-                            "background-image": "url(images/work-1.jpg)"
-                          }
+                          style:
+                            "background-image: url(uploads/projects/" +
+                            project.id +
+                            "/" +
+                            project.image +
+                            ");"
                         },
                         [
                           _c("div", { staticClass: "overlay" }),
@@ -74194,7 +74197,17 @@ var render = function() {
                   _vm.$set(_vm.form, "link", $event.target.value)
                 }
               }
-            })
+            }),
+            _vm._v(" "),
+            _vm.$page.errors.link
+              ? _c("div", { staticClass: "text-red-800" }, [
+                  _vm._v(
+                    "\n          " +
+                      _vm._s(_vm.$page.errors.link[0]) +
+                      "\n        "
+                  )
+                ])
+              : _vm._e()
           ])
         ]),
         _vm._v(" "),
@@ -74208,7 +74221,28 @@ var render = function() {
               ],
               attrs: { for: "link" }
             },
-            [_vm._v("Image")]
+            [
+              _vm._v("Image "),
+              _vm.form.image != ""
+                ? _c(
+                    "a",
+                    {
+                      attrs: {
+                        href:
+                          "/uploads/projects/" +
+                          _vm.form.id +
+                          "/" +
+                          _vm.form.image,
+                        target: "_blank"
+                      }
+                    },
+                    [
+                      _c("i", { staticClass: "fa fa-download" }),
+                      _vm._v(" Download")
+                    ]
+                  )
+                : _vm._e()
+            ]
           ),
           _vm._v(" "),
           _c("input", {
@@ -74219,9 +74253,9 @@ var render = function() {
           _vm.$page.errors.image
             ? _c("div", { staticClass: "text-red-800" }, [
                 _vm._v(
-                  "\n            " +
+                  "\n          " +
                     _vm._s(_vm.$page.errors.image[0]) +
-                    "\n          "
+                    "\n        "
                 )
               ])
             : _vm._e()
@@ -74234,8 +74268,7 @@ var render = function() {
             _c(
               "label",
               {
-                staticClass:
-                  "block text-gray-700 text-sm font-bold mb-2 required",
+                staticClass: "block text-gray-700 text-sm font-bold mb-2",
                 attrs: { for: "link" }
               },
               [_vm._v("Tags")]
@@ -74253,8 +74286,8 @@ var render = function() {
           _c(
             "button",
             {
-              staticClass: "py-2 px-4 bg-info rounded  text-white",
-              attrs: { type: "button" },
+              staticClass: "py-2 px-4 bg-info rounded text-white",
+              attrs: { type: "submit" },
               on: { click: _vm.submit }
             },
             [_vm._v("Save")]

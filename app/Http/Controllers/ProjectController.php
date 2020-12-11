@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\ProjectRequest;
 use App\Models\Project;
+use Illuminate\Filesystem\Filesystem;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use Inertia\Inertia;
@@ -36,7 +37,8 @@ class ProjectController extends Controller
     public function store(ProjectRequest $request)
     {
         $projectRequest = $request->all();
-        $projectRequest['tags'] = json_encode($projectRequest['tags']);
+        $tags = isset($projectRequest['tags']) ? explode(',', $projectRequest['tags']) : [];
+        $projectRequest['tags'] = json_encode($tags);
         if (intval($request->id) > 0) {
             $project = Project::find($request->id);
             $projectRequest['image'] = $project->image;
@@ -46,23 +48,24 @@ class ProjectController extends Controller
             $project = Project::create($projectRequest);
         }
         $filename = $project->image;
-        if (strpos($request->get('image'), 'data:image') !== false) {
-            $image = $image = $request->get('image');
-            $filename = time() . '.' . explode('/', explode(':', substr($image, 0, strpos($image, ';')))[1])[1];
+        if ($file = $request->hasFile('image')) {
+            $filename = time() . '.' . $request->image->getClientOriginalExtension();
             $save_path = public_path() . '/uploads/projects/' . $project->id . '/';
-            if (!is_dir($save_path)) {
-                mkdir($save_path, 666, true);
-            }
-            Image::make($request->get('image'))->save($save_path . $filename);
+            $request->image->move($save_path, $filename);
+            $project->image = $filename;
+            $project->save();
         }
-        $project->image = $filename;
-        $project->save();
         return Redirect::route('projects')->with('success', 'Saved successfully');
     }
 
     public function delete(Project $project)
     {
         $project->delete();
+        $save_path = public_path() . '/uploads/projects/' . $project->id . '/';
+        if (is_dir($save_path)) {
+            $filesystem = new Filesystem();
+            $filesystem->deleteDirectory($save_path);
+        }
         return Redirect::route('projects')->with('success', 'Deleted successfully');
     }
 }

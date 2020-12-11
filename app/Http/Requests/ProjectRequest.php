@@ -27,9 +27,8 @@ class ProjectRequest extends FormRequest
         $id = $this->request->get('id');
         $imageRule = $id > 0 ? '' : 'required';
         return [
-            'image' => [$imageRule],
-            'link' => ['required', 'max:255'],
-            'realized_at' => [],
+            'image' => $imageRule,
+            'link' => 'required|max:255|url',
         ];
     }
 }

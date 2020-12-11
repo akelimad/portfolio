@@ -203,8 +203,8 @@
         </div>
         <div class="row">
           <div v-for="project in this.projectsData" :key="project.id" class="col-md-4 mb-3">
-            <div class="inner-content border">
-              <div class="project img d-flex justify-content-center align-items-center project-item" style="background-image: url(images/work-1.jpg);">
+            <div class="inner-content border h-100">
+              <div class="project img d-flex justify-content-center align-items-center project-item" :style="'background-image: url(uploads/projects/'+project.id+'/'+project.image+');'">
                 <div class="overlay"></div>
                 <div class="text text-center p-4">
                   <h3><a :href="project.link" target="_blank"><i class="fa fa-search"></i> View website</a></h3>

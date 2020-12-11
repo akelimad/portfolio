@@ -33,21 +33,24 @@
           <div class="col-gap-1">
             <label for="link" class="block text-gray-700 text-sm font-bold mb-2 required" >Link</label>
             <input id="link" type="text" v-model="form.link" class="appearance-none border rounded w-full py-2 px-3 text-gray-700  leading-tight focus:outline-none focus:shadow-outline"/>
+            <div v-if="$page.errors.link" class="text-red-800">
+            {{ $page.errors.link[0] }}
+          </div>
           </div>
         </div>
         <div class="mb-4">
-          <label for="link" :class="['block text-gray-700 text-sm font-bold mb-2', form.image != '' ? '':'required']">Image</label>
+          <label for="link" :class="['block text-gray-700 text-sm font-bold mb-2', form.image != '' ? '':'required']">Image <a :href="'/uploads/projects/'+ form.id + '/' + form.image" v-if="form.image != ''" target="_blank"><i class="fa fa-download"></i> Download</a></label>
           <input type="file" accept="image/*" @change="fileUpload">
           <div v-if="$page.errors.image" class="text-red-800">
-              {{ $page.errors.image[0] }}
-            </div>
+            {{ $page.errors.image[0] }}
+          </div>
         </div>
         <div class="mb-4">
-          <label for="link" class="block text-gray-700 text-sm font-bold mb-2 required">Tags</label>
+          <label for="link" class="block text-gray-700 text-sm font-bold mb-2">Tags</label>
           <tag-input :tags="form.tags" @tagUpdated="tagsUpdated"></tag-input>
         </div>
         <div class="mb-4">
-          <button type="button" @click="submit" class="py-2 px-4 bg-info rounded  text-white">Save</button>
+          <button type="submit" @click="submit" class="py-2 px-4 bg-info rounded text-white">Save</button>
         </div>
       </div>
     </div>
@@ -66,36 +69,36 @@ export default {
   data() {
     return {
       form: {
-        id: this.project.id,
-        title: this.project.title,
-        description: this.project.description,
-        image: this.project.image,
-        link: this.project.link,
-        realized_at: this.project.realized_at,
-        tags: this.project.tags,
+        id: this.project.id || '',
+        title: this.project.title || '',
+        description: this.project.description || '',
+        image: this.project.image || '',
+        link: this.project.link || '',
+        realized_at: this.project.realized_at || '',
+        tags: this.project.tags || '',
       },
       editMode: this.project.id != null,
     };
   },
   methods: {
     fileUpload (e) {
-      let files = e.target.files || e.dataTransfer.files;
-      if (!files.length) return;
-      this.createImage(files[0]);
-    },
-    createImage (file) {
-      let reader = new FileReader();
-      let thiss = this
-      reader.onload = function (e) {
-        thiss.form.image = e.target.result;
-      };
-      reader.readAsDataURL(file);
+      this.form.image = e.target.files[0];
     },
     tagsUpdated (value) {
       this.form.tags = value.tags
     },
-    submit() {
-      this.$inertia.post("/projects/form/store", this.form);
+    submit(e) {
+      //e.preventDefault();
+      let formData = new FormData();
+      formData.append('id', this.form.id);
+      formData.append('title', this.form.title);
+      formData.append('description', this.form.description);
+      formData.append('image', this.form.image);
+      formData.append('link', this.form.link);
+      formData.append('realized_at', this.form.realized_at);
+      formData.append('tags', this.form.tags);
+
+      this.$inertia.post("/projects/form/store", formData);
     },
   },
 };
