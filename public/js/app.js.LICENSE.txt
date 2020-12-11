@@ -35,6 +35,12 @@
  * Date: 2020-05-04T22:49Z
  */
 
+/*!
+ * vue-toastr v2.1.2 
+ * (c) 2019 s4l1h
+ * Released under the MIT License.
+ */
+
 /*! 
   * portal-vue © Thorsten Lünborg, 2019 
   * 
@@ -79,3 +85,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
+
+//! moment.js
+
+//! moment.js locale configuration
