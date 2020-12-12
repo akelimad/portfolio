@@ -5,7 +5,7 @@
       <div class="overlay"></div>
       <div class="container">
         <div class="row no-gutters slider-text js-fullheight justify-content-center align-items-center">
-          <div class="col-lg-8 col-md-6 d-flex align-items-center">
+          <div class="col-lg-6 col-md-6 d-flex align-items-center intro-infos">
             <div class="text text-center">
               <span class="subheading">Hey! I'm</span>
               <h1>Imad AKEL</h1>
@@ -176,8 +176,8 @@
                   <div class="progress-wrap">
                     <h3>Laravel</h3>
                     <div class="progress">
-                      <div class="progress-bar color-5" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width:80%">
-                        <span>80%</span>
+                      <div class="progress-bar color-5" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:70%">
+                        <span>70%</span>
                       </div>
                     </div>
                   </div>
@@ -186,8 +186,8 @@
                   <div class="progress-wrap">
                     <h3>Symfony</h3>
                     <div class="progress">
-                      <div class="progress-bar color-6" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width:80%">
-                        <span>80%</span>
+                      <div class="progress-bar color-6" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:70%">
+                        <span>70%</span>
                       </div>
                     </div>
                   </div>
@@ -207,7 +207,7 @@
                   <p>{{ certif.description }}</p>
                 </div>
               </div>
-              <p v-if="this.certifsData.length == 0" class="alert alert-info">No result foud!</p>
+              <p v-if="this.certifsData.length == 0" class="alert alert-info">No result found!</p>
             </div>
           </div>
         </div>
@@ -222,7 +222,7 @@
           </div>
         </div>
         <div class="row">
-          <div v-for="project in this.projectsData" :key="project.id" class="col-md-4 mb-3">
+          <div v-for="(project, pIndex) in this.projectsData" :key="pIndex" class="col-md-4 mb-3">
             <div class="inner-content border h-100">
               <div class="project img d-flex justify-content-center align-items-center project-item" :style="'background-image: url(uploads/projects/'+project.id+'/'+project.image+');'">
                 <div class="overlay"></div>
@@ -231,14 +231,14 @@
                 </div>
               </div>
               <div class="project-tags">
-                <span v-for="tag in project.tags" :key="tag" class="tag mr-2">
+                <span v-for="(tag, tagIndex) in project.tags" :key="tagIndex" class="tag mr-2">
                   {{ tag }}
                 </span>
               </div>
             </div>
           </div>
           <div v-if="this.projectsData.length == 0" class="col-md-12">
-            <p class="alert alert-info">No result foud!</p>
+            <p class="alert alert-info">No result found!</p>
           </div>
         </div>
       </div>
@@ -333,6 +333,12 @@
 
   </guest-layout>
 </template>
+
+<style>
+  .intro-infos {
+    z-index: 99999999;
+  }
+</style>
 
 <script>
   import GuestLayout from '@/Layouts/GuestLayout'

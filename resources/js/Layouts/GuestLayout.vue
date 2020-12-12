@@ -40,8 +40,246 @@
 
     <!-- loader -->
     <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
+    <Particles
+      id="tsparticles"
+      :options="{
+        background: {
+                color: {
+                    value: '#63bad8'
+                }
+            },
+            fpsLimit: 60,
+            interactivity: {
+                detectsOn: 'canvas',
+                events: {
+                    onClick: {
+                        enable: true,
+                        mode: 'push'
+                    },
+                    onHover: {
+                        enable: true,
+                        mode: 'trail'
+                    },
+                    resize: true
+                },
+                'modes': {
+                'attract': {
+                  'distance': 200,
+                  'duration': 0.4,
+                  'speed': 1
+                },
+                'bounce': {
+                  'distance': 200
+                },
+                'bubble': {
+                  'distance': 200,
+                  'duration': 0.4
+                },
+                'connect': {
+                  'distance': 80,
+                  'links': {
+                    'opacity': 0.5
+                  },
+                  'radius': 60
+                },
+                'grab': {
+                  'distance': 100,
+                  'links': {
+                    'blink': false,
+                    'consent': false,
+                    'opacity': 1
+                  }
+                },
+                'light': {
+                  'area': {
+                    'gradient': {
+                      'start': {
+                        'value': '#ffffff'
+                      },
+                      'stop': {
+                        'value': '#000000'
+                      }
+                    },
+                    'radius': 1000
+                  },
+                  'shadow': {
+                    'color': {
+                      'value': '#000000'
+                    },
+                    'length': 2000
+                  }
+                },
+                'push': {
+                  'quantity': 4
+                },
+                'remove': {
+                  'quantity': 2
+                },
+                'repulse': {
+                  'distance': 200,
+                  'duration': 0.4,
+                  'speed': 1
+                },
+                'slow': {
+                  'factor': 3,
+                  'radius': 200
+                },
+                'trail': {
+                  'delay': 0.005,
+                  'quantity': 5,
+                  'particles': {
+                    'color': {
+                      'value': '#ff0000',
+                      'animation': {
+                        'enable': true,
+                        'speed': 400,
+                        'sync': true
+                      }
+                    },
+                    'collisions': {
+                      'enable': false,
+                      'bounce': {
+                        'horizontal': {
+                          'random': {}
+                        },
+                        'vertical': {
+                          'random': {}
+                        }
+                      }
+                    },
+                    'links': {
+                      'enable': false,
+                      'shadow': {},
+                      'triangles': {}
+                    },
+                    'move': {
+                      'outMode': 'destroy',
+                      'speed': 5,
+                      'angle': {},
+                      'attract': {
+                        'rotate': {}
+                      },
+                      'gravity': {},
+                      'noise': {
+                        'delay': {
+                          'random': {}
+                        }
+                      },
+                      'outModes': {},
+                      'trail': {}
+                    },
+                    'size': {
+                      'value': 5,
+                      'animation': {
+                        'enable': true,
+                        'speed': 5,
+                        'minimumValue': 1,
+                        'sync': true,
+                        'startValue': 'min',
+                        'destroy': 'max'
+                      },
+                      'random': {}
+                    },
+                    'bounce': {
+                      'horizontal': {
+                        'random': {}
+                      },
+                      'vertical': {
+                        'random': {}
+                      }
+                    },
+                    'life': {
+                      'delay': {
+                        'random': {}
+                      },
+                      'duration': {
+                        'random': {}
+                      }
+                    },
+                    'number': {
+                      'density': {}
+                    },
+                    'opacity': {
+                      'animation': {},
+                      'random': {}
+                    },
+                    'rotate': {
+                      'animation': {}
+                    },
+                    'shadow': {
+                      'offset': {}
+                    },
+                    'shape': {},
+                    'stroke': {
+                      'color': {
+                        'value': '',
+                        'animation': {
+                          'enable': false,
+                          'speed': 0,
+                          'sync': false
+                        }
+                      }
+                    },
+                    'twinkle': {
+                      'lines': {},
+                      'particles': {}
+                    }
+                  }
+                }
+              }
+            },
+            particles: {
+                color: {
+                    value: '#ffffff'
+                },
+                links: {
+                    color: '#ffffff',
+                    distance: 150,
+                    enable: true,
+                    opacity: 0.5,
+                    width: 1
+                },
+                collisions: {
+                    enable: true
+                },
+                move: {
+                    direction: 'none',
+                    enable: true,
+                    outMode: 'bounce',
+                    random: false,
+                    speed: 6,
+                    straight: false
+                },
+                number: {
+                    density: {
+                        enable: true,
+                        value_area: 800
+                    },
+                    value: 80
+                },
+                opacity: {
+                    value: 0.5
+                },
+                shape: {
+                    type: 'circle'
+                },
+                size: {
+                    random: true,
+                    value: 5
+                }
+            },
+            detectRetina: true
+      }"
+    />
   </div>
 </template>
+
+<style lang="scss">
+  .tsparticles-canvas-el {
+    position: absolute;
+    top: 0;
+  }
+</style>
 
 <script>
   export default {

@@ -10,6 +10,7 @@ import VueToastr from 'vue-toastr'
 import VueSimpleAlert from "vue-simple-alert";
 import moment from "moment";
 import truncate from "vue-truncate-filter"
+import Particles from "particles.vue";
 
 Vue.mixin({ methods: { route } });
 Vue.use(InertiaApp);
@@ -19,6 +20,7 @@ Vue.use(VueToastr)
 Vue.use(VueSimpleAlert);
 Vue.use(moment);
 Vue.use(truncate);
+Vue.use(Particles);
 
 const app = document.getElementById('app');
 
