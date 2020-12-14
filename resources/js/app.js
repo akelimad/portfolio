@@ -11,6 +11,7 @@ import VueSimpleAlert from "vue-simple-alert";
 import moment from "moment";
 import truncate from "vue-truncate-filter"
 import Particles from "particles.vue";
+import VueProgressBar from 'vue-progressbar';
 
 Vue.mixin({ methods: { route } });
 Vue.use(InertiaApp);
@@ -21,6 +22,13 @@ Vue.use(VueSimpleAlert);
 Vue.use(moment);
 Vue.use(truncate);
 Vue.use(Particles);
+
+const options = {
+    color: '#28a745',
+    failedColor: '#dc3545',
+    thickness: '3px',
+}
+Vue.use(VueProgressBar, options);
 
 const app = document.getElementById('app');
 

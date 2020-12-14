@@ -27,7 +27,7 @@
     </div>
 
     <!-- Page Content -->
-    <footer class="bg-black p-5">
+    <footer class="bg-black p-20">
       <div class="container">
         <div class="row">
           <div class="col-md-12 text-center">

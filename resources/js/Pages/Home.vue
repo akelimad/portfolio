@@ -1,6 +1,6 @@
 <template>
   <guest-layout>
-
+    <vue-progress-bar></vue-progress-bar>
     <section class="ftco-section hero-wrap js-fullheight p-0" id="home-section">
       <div class="overlay"></div>
       <div class="container">
@@ -27,7 +27,8 @@
           <div class="col-md-6 col-lg-6 d-flex about-image-col">
             <div class="img-about img d-flex align-items-stretch">
               <div class="overlay"></div>
-              <div class="img d-flex align-self-stretch align-items-center" style="background-image:url(images/about.png); margin-top:-116px;">
+              <div class="img d-flex align-self-stretch align-items-center">
+                <img src="/images/about.png" alt="">
               </div>
             </div>
           </div>
@@ -62,7 +63,7 @@
     <section class="ftco-section goto-here py-5" id="resume-section">
       <div class="container">
         <div class="row">
-          <div class="col-md-3">
+          <div class="col-md-3 mb-4">
             <nav id="navi">
               <ul>
                 <li><a href="#page-1">Formations</a></li>
@@ -254,11 +255,11 @@
         </div>
 
         <div class="row no-gutters">
-          <div class="col-md-6 p-5 bg-light">
-            <div class="row contact-info mt-30">
+          <div class="col-md-6 p-50 p-xs-10 bg-light">
+            <div class="row contact-info">
               <div class="col-12 mb-3">
                 <div class="box text-center overflow-auto">
-                  <div class="icon pull-left mr-40">
+                  <div class="icon pull-left mr-40 mr-xs-0">
                     <span class="fa fa-home"></span>
                   </div>
                   <div class="pull-left ml-3">
@@ -268,7 +269,7 @@
               </div>
               <div class="col-12 mb-3">
                 <div class="box text-center overflow-auto">
-                  <div class="icon pull-left mr-40">
+                  <div class="icon pull-left mr-40 mr-xs-0">
                     <span class="fa fa-phone"></span>
                   </div>
                   <div class="pull-left ml-3">
@@ -278,7 +279,7 @@
               </div>
               <div class="col-12 mb-3">
                 <div class="box text-center overflow-auto">
-                  <div class="icon pull-left mr-40">
+                  <div class="icon pull-left mr-40 mr-xs-0">
                     <span class="fa fa-envelope"></span>
                   </div>
                   <div class="pull-left ml-3">
@@ -288,7 +289,7 @@
               </div>
               <div class="col-12 mb-3">
                 <div class="box text-center overflow-auto">
-                  <div class="icon pull-left mr-40">
+                  <div class="icon pull-left mr-40 mr-xs-0">
                     <span class="fa fa-facebook"></span>
                   </div>
                   <div class="pull-left ml-3">
@@ -298,7 +299,7 @@
               </div>
               <div class="col-12 mb-3">
                 <div class="box text-center overflow-auto">
-                  <div class="icon pull-left mr-40">
+                  <div class="icon pull-left mr-40 mr-xs-0">
                     <span class="fa fa-github"></span>
                   </div>
                   <div class="pull-left ml-3">
@@ -366,17 +367,23 @@
   Vue.use(Vuelidate);
 
   export default {
+    created () {
+      this.$Progress.start()
+    },
+    mounted () {
+      this.$Progress.finish()
+    },
     watch: {
       flash: {
         handler: function (newFlush, oldFlush) {
-          if (newFlush.success != null) {
-            this.$toastr.s(newFlush.success);
-            this.contactForm.name = ''
-            this.contactForm.email = ''
-            this.contactForm.subject = ''
-            this.contactForm.message = ''
-            this.submitting = false
-          }
+          if (newFlush.success != null) this.$toastr.s(newFlush.success);
+          if (newFlush.danger != null)  this.$toastr.e(newFlush.danger);
+          this.contactForm.name = ''
+          this.contactForm.email = ''
+          this.contactForm.subject = ''
+          this.contactForm.message = ''
+          this.submitting = false
+          this.$Progress.finish()
         },
       }
     },
@@ -402,19 +409,14 @@
         name: {required, minLength: minLength(2), maxLength: maxLength(32)},
         email: {required, email},
         subject: {required, minLength: minLength(2), maxLength: maxLength(64)},
-        message: {required, minLength: minLength(16), maxLength: maxLength(255)}
+        message: {required, minLength: minLength(16), maxLength: maxLength(500)}
       }
     },
     methods: {
-      status(validation) {
-        return {
-          error: validation.$error,
-          dirty: validation.$dirty
-        }
-      },
       submitContactForm (e) { 
         e.preventDefault()
         this.submitting = true
+        this.$Progress.start()
         this.$inertia.post("/contact/send-message", this.contactForm);
       },
     },

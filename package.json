@@ -39,6 +39,7 @@
         "particles.vue": "^2.1.11",
         "popper.js": "^1.16.1",
         "scrollax": "^1.0.0",
+        "vue-progressbar": "^0.7.5",
         "vue-simple-alert": "^1.1.1",
         "vue-toastr": "^2.1.2",
         "vue-truncate-filter": "^1.1.7",
