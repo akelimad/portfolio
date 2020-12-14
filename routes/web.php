@@ -7,6 +7,7 @@ use App\Http\Controllers\FormationController;
 use App\Http\Controllers\ExperienceController;
 use App\Http\Controllers\SkillController;
 use App\Http\Controllers\CertificationController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ProjectController;
 
 /*
@@ -44,3 +45,5 @@ Route::get('/projects', [ProjectController::class, 'index'])->name('projects');
 Route::get('/projects/form/{id?}', [ProjectController::class, 'form'])->name('projects.form');
 Route::post('/projects/form/store', [ProjectController::class, 'store'])->name('projects.store');
 Route::any('/projects/{project}/delete', [ProjectController::class, 'delete'])->name('projects.delete');
+
+Route::post('/contact/send-message', [ContactController::class, 'sendMessage'])->name('send-message');

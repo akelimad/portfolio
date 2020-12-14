@@ -42,6 +42,7 @@
         "vue-simple-alert": "^1.1.1",
         "vue-toastr": "^2.1.2",
         "vue-truncate-filter": "^1.1.7",
+        "vuelidate": "^0.7.6",
         "waypoint": "^0.2.8"
     }
 }

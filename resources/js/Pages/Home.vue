@@ -246,16 +246,16 @@
 
     <section class="ftco-section contact-section py-5" id="contact-section">
       <div class="container">
-        <div class="row justify-content-center mb-5 pb-3">
+        <div class="row justify-content-center pb-3">
           <div class="col-md-7 heading-section text-center">
             <h2 class="mb-4">Get in touch</h2>
             <p>If you have any question, feel free to contact me</p>
           </div>
         </div>
 
-        <div class="row no-gutters block-9">
+        <div class="row no-gutters">
           <div class="col-md-6 p-5 bg-light">
-            <div class="row contact-info mb-5 mt-30">
+            <div class="row contact-info mt-30">
               <div class="col-12 mb-3">
                 <div class="box text-center overflow-auto">
                   <div class="icon pull-left mr-40">
@@ -310,20 +310,31 @@
           </div>
           <div class="col-md-6 d-flex">
             <form action="#" class="bg-light p-4 p-md-5 contact-form">
-              <div class="form-group">
-                <input type="text" class="form-control" placeholder="Your Name">
+              <div class="form-group" >
+                <input type="text" name="name" :class="['form-control', $v.contactForm.name.$invalid ? 'is-invalid' : 'is-valid']" placeholder="Name *" v-model="contactForm.name">
+                <p v-show="!$v.contactForm.name.required" class="invalid">Name is required</p>
+                <p v-show="!$v.contactForm.name.minLength" class="invalid">Name can't be less than {{ $v.contactForm.name.$params.minLength.min }} chars</p>
+                <p v-show="!$v.contactForm.name.maxLength" class="invalid">Name can't be more than {{ $v.contactForm.name.$params.maxLength.max }} chars</p>
               </div>
               <div class="form-group">
-                <input type="text" class="form-control" placeholder="Your Email">
+                <input type="text" :class="['form-control', $v.contactForm.email.$invalid ? 'is-invalid' : 'is-valid']" placeholder="Email *" v-model="contactForm.email">
+                <p v-show="!$v.contactForm.email.required" class="invalid">Email is required</p>
+                <p v-show="!$v.contactForm.email.email" class="invalid">Email is invalid</p>
               </div>
               <div class="form-group">
-                <input type="text" class="form-control" placeholder="Subject">
+                <input type="text" :class="['form-control', $v.contactForm.subject.$invalid ? 'is-invalid' : 'is-valid']" placeholder="Subject *" v-model="contactForm.subject">
+                <p v-show="!$v.contactForm.subject.required" class="invalid">Subject is required</p>
+                <p v-show="!$v.contactForm.subject.minLength" class="invalid">Subject can't be less than {{ $v.contactForm.subject.$params.minLength.min }} chars</p>
+                <p v-show="!$v.contactForm.subject.maxLength" class="invalid">Subject can't be more than {{ $v.contactForm.subject.$params.maxLength.max }} chars</p>
               </div>
               <div class="form-group">
-                <textarea name="" id="" cols="30" rows="7" class="form-control" placeholder="Message"></textarea>
+                <textarea name="" id="" cols="30" rows="7" :class="['form-control', $v.contactForm.message.$invalid ? 'is-invalid' : 'is-valid']" placeholder="Message *" v-model="contactForm.message"></textarea>
+                <p v-show="!$v.contactForm.message.required" class="invalid">Message is required</p>
+                <p v-show="!$v.contactForm.message.minLength" class="invalid">Message can't be less than {{ $v.contactForm.message.$params.minLength.min }} chars</p>
+                <p v-show="!$v.contactForm.message.maxLength" class="invalid">Message can't be more than {{ $v.contactForm.message.$params.maxLength.max }} chars</p>
               </div>
-              <div class="form-group">
-                <input type="submit" value="Send Message" class="btn btn-primary py-3 px-5">
+              <div class="form-group mb-0">
+                <input type="submit" @click="submitContactForm" value="Send Message" class="btn btn-primary py-3 px-5" :disabled="$v.contactForm.$invalid || this.submitting">
               </div>
             </form>
           </div>
@@ -338,23 +349,75 @@
   .intro-infos {
     z-index: 99999999;
   }
+  .invalid {
+    width: 100%;
+    margin-top: .25rem;
+    font-size: 80%;
+    color: #dc3545;
+    margin-top: 0;
+  }
 </style>
 
 <script>
+  import Vue from "vue";
   import GuestLayout from '@/Layouts/GuestLayout'
+  import Vuelidate from "vuelidate";
+  import {required, minLength, maxLength, email} from 'vuelidate/lib/validators'
+  Vue.use(Vuelidate);
 
   export default {
-    created () {
+    watch: {
+      flash: {
+        handler: function (newFlush, oldFlush) {
+          if (newFlush.success != null) {
+            this.$toastr.s(newFlush.success);
+            this.contactForm.name = ''
+            this.contactForm.email = ''
+            this.contactForm.subject = ''
+            this.contactForm.message = ''
+            this.submitting = false
+          }
+        },
+      }
     },
+    props: ["formations", "experiences", "certifications", "projects", "flash"],
     data () {
       return {
         formationsData: this.formations,
         experiencesData: this.experiences,
         certifsData: this.certifications,
         projectsData: this.projects,
+        contactForm: {
+          name: '',
+          email: '',
+          subject: '',
+          message: '',
+        },
+        flush: this.flash,
+        submitting: false
       }
     },
-    props: ["formations", "experiences", "certifications", "projects"],
+    validations: {
+      contactForm: {
+        name: {required, minLength: minLength(2), maxLength: maxLength(32)},
+        email: {required, email},
+        subject: {required, minLength: minLength(2), maxLength: maxLength(64)},
+        message: {required, minLength: minLength(16), maxLength: maxLength(255)}
+      }
+    },
+    methods: {
+      status(validation) {
+        return {
+          error: validation.$error,
+          dirty: validation.$dirty
+        }
+      },
+      submitContactForm (e) { 
+        e.preventDefault()
+        this.submitting = true
+        this.$inertia.post("/contact/send-message", this.contactForm);
+      },
+    },
     components: {
       GuestLayout
     },
