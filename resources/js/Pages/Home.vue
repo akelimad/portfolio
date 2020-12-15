@@ -312,27 +312,35 @@
           <div class="col-md-6 d-flex">
             <form action="#" class="bg-light p-4 p-md-5 contact-form">
               <div class="form-group" >
-                <input type="text" name="name" :class="['form-control', $v.contactForm.name.$invalid ? 'is-invalid' : 'is-valid']" placeholder="Name *" v-model="contactForm.name">
-                <p v-show="!$v.contactForm.name.required" class="invalid">Name is required</p>
-                <p v-show="!$v.contactForm.name.minLength" class="invalid">Name can't be less than {{ $v.contactForm.name.$params.minLength.min }} chars</p>
-                <p v-show="!$v.contactForm.name.maxLength" class="invalid">Name can't be more than {{ $v.contactForm.name.$params.maxLength.max }} chars</p>
+                <input type="text" class="form-control" :class="{'is-invalid': $v.contactForm.name.$error, 'is-valid': !$v.contactForm.name.$invalid}" placeholder="Name *" v-model.trim="$v.contactForm.name.$model">
+                <div class="invalid-feedback" v-if="$v.contactForm.name.$error">
+                  <p v-if="!$v.contactForm.name.required" class="invalid">Name is required</p>
+                  <p v-if="!$v.contactForm.name.minLength" class="invalid">Name can't be less than {{ $v.contactForm.name.$params.minLength.min }} chars</p>
+                  <p v-if="!$v.contactForm.name.maxLength" class="invalid">Name can't be more than {{ $v.contactForm.name.$params.maxLength.max }} chars</p>
+                </div>
               </div>
               <div class="form-group">
-                <input type="text" :class="['form-control', $v.contactForm.email.$invalid ? 'is-invalid' : 'is-valid']" placeholder="Email *" v-model="contactForm.email">
-                <p v-show="!$v.contactForm.email.required" class="invalid">Email is required</p>
-                <p v-show="!$v.contactForm.email.email" class="invalid">Email is invalid</p>
+                <input type="text" class="form-control" :class="{'is-invalid': $v.contactForm.email.$error, 'is-valid': !$v.contactForm.email.$invalid}" placeholder="Email *" v-model.trim="$v.contactForm.email.$model">
+                <div class="invalid-feedback" v-if="$v.contactForm.email.$error">
+                  <p v-show="!$v.contactForm.email.required" class="invalid">Email is required</p>
+                  <p v-show="!$v.contactForm.email.email" class="invalid">Email is invalid</p>
+                </div>
               </div>
               <div class="form-group">
-                <input type="text" :class="['form-control', $v.contactForm.subject.$invalid ? 'is-invalid' : 'is-valid']" placeholder="Subject *" v-model="contactForm.subject">
-                <p v-show="!$v.contactForm.subject.required" class="invalid">Subject is required</p>
-                <p v-show="!$v.contactForm.subject.minLength" class="invalid">Subject can't be less than {{ $v.contactForm.subject.$params.minLength.min }} chars</p>
-                <p v-show="!$v.contactForm.subject.maxLength" class="invalid">Subject can't be more than {{ $v.contactForm.subject.$params.maxLength.max }} chars</p>
+                <input type="text" class="form-control" :class="{'is-invalid': $v.contactForm.subject.$error, 'is-valid': !$v.contactForm.subject.$invalid}" placeholder="Subject *" v-model.trim="$v.contactForm.subject.$model">
+                <div class="invalid-feedback" v-if="$v.contactForm.subject.$error">
+                  <p v-show="!$v.contactForm.subject.required" class="invalid">Subject is required</p>
+                  <p v-show="!$v.contactForm.subject.minLength" class="invalid">Subject can't be less than {{ $v.contactForm.subject.$params.minLength.min }} chars</p>
+                  <p v-show="!$v.contactForm.subject.maxLength" class="invalid">Subject can't be more than {{ $v.contactForm.subject.$params.maxLength.max }} chars</p>
+                </div>
               </div>
               <div class="form-group">
-                <textarea name="" id="" cols="30" rows="7" :class="['form-control', $v.contactForm.message.$invalid ? 'is-invalid' : 'is-valid']" placeholder="Message *" v-model="contactForm.message"></textarea>
-                <p v-show="!$v.contactForm.message.required" class="invalid">Message is required</p>
-                <p v-show="!$v.contactForm.message.minLength" class="invalid">Message can't be less than {{ $v.contactForm.message.$params.minLength.min }} chars</p>
-                <p v-show="!$v.contactForm.message.maxLength" class="invalid">Message can't be more than {{ $v.contactForm.message.$params.maxLength.max }} chars</p>
+                <textarea cols="30" rows="7" class="form-control" :class="{'is-invalid': $v.contactForm.message.$error, 'is-valid': !$v.contactForm.message.$invalid}" placeholder="Message *" v-model.trim="$v.contactForm.message.$model"></textarea>
+                <div class="invalid-feedback" v-if="$v.contactForm.message.$error">
+                  <p v-show="!$v.contactForm.message.required" class="invalid">Message is required</p>
+                  <p v-show="!$v.contactForm.message.minLength" class="invalid">Message can't be less than {{ $v.contactForm.message.$params.minLength.min }} chars</p>
+                  <p v-show="!$v.contactForm.message.maxLength" class="invalid">Message can't be more than {{ $v.contactForm.message.$params.maxLength.max }} chars</p>
+                </div>
               </div>
               <div class="form-group mb-0">
                 <input type="submit" @click="submitContactForm" value="Send Message" class="btn btn-primary py-3 px-5" :disabled="$v.contactForm.$invalid || this.submitting">

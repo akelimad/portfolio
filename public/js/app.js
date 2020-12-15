@@ -4568,6 +4568,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -86055,100 +86063,71 @@ var render = function() {
                         directives: [
                           {
                             name: "model",
-                            rawName: "v-model",
-                            value: _vm.contactForm.name,
-                            expression: "contactForm.name"
+                            rawName: "v-model.trim",
+                            value: _vm.$v.contactForm.name.$model,
+                            expression: "$v.contactForm.name.$model",
+                            modifiers: { trim: true }
                           }
                         ],
-                        class: [
-                          "form-control",
-                          _vm.$v.contactForm.name.$invalid
-                            ? "is-invalid"
-                            : "is-valid"
-                        ],
-                        attrs: {
-                          type: "text",
-                          name: "name",
-                          placeholder: "Name *"
+                        staticClass: "form-control",
+                        class: {
+                          "is-invalid": _vm.$v.contactForm.name.$error,
+                          "is-valid": !_vm.$v.contactForm.name.$invalid
                         },
-                        domProps: { value: _vm.contactForm.name },
+                        attrs: { type: "text", placeholder: "Name *" },
+                        domProps: { value: _vm.$v.contactForm.name.$model },
                         on: {
                           input: function($event) {
                             if ($event.target.composing) {
                               return
                             }
                             _vm.$set(
-                              _vm.contactForm,
-                              "name",
-                              $event.target.value
+                              _vm.$v.contactForm.name,
+                              "$model",
+                              $event.target.value.trim()
                             )
+                          },
+                          blur: function($event) {
+                            return _vm.$forceUpdate()
                           }
                         }
                       }),
                       _vm._v(" "),
-                      _c(
-                        "p",
-                        {
-                          directives: [
-                            {
-                              name: "show",
-                              rawName: "v-show",
-                              value: !_vm.$v.contactForm.name.required,
-                              expression: "!$v.contactForm.name.required"
-                            }
-                          ],
-                          staticClass: "invalid"
-                        },
-                        [_vm._v("Name is required")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "p",
-                        {
-                          directives: [
-                            {
-                              name: "show",
-                              rawName: "v-show",
-                              value: !_vm.$v.contactForm.name.minLength,
-                              expression: "!$v.contactForm.name.minLength"
-                            }
-                          ],
-                          staticClass: "invalid"
-                        },
-                        [
-                          _vm._v(
-                            "Name can't be less than " +
-                              _vm._s(
-                                _vm.$v.contactForm.name.$params.minLength.min
-                              ) +
-                              " chars"
-                          )
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "p",
-                        {
-                          directives: [
-                            {
-                              name: "show",
-                              rawName: "v-show",
-                              value: !_vm.$v.contactForm.name.maxLength,
-                              expression: "!$v.contactForm.name.maxLength"
-                            }
-                          ],
-                          staticClass: "invalid"
-                        },
-                        [
-                          _vm._v(
-                            "Name can't be more than " +
-                              _vm._s(
-                                _vm.$v.contactForm.name.$params.maxLength.max
-                              ) +
-                              " chars"
-                          )
-                        ]
-                      )
+                      _vm.$v.contactForm.name.$error
+                        ? _c("div", { staticClass: "invalid-feedback" }, [
+                            !_vm.$v.contactForm.name.required
+                              ? _c("p", { staticClass: "invalid" }, [
+                                  _vm._v("Name is required")
+                                ])
+                              : _vm._e(),
+                            _vm._v(" "),
+                            !_vm.$v.contactForm.name.minLength
+                              ? _c("p", { staticClass: "invalid" }, [
+                                  _vm._v(
+                                    "Name can't be less than " +
+                                      _vm._s(
+                                        _vm.$v.contactForm.name.$params
+                                          .minLength.min
+                                      ) +
+                                      " chars"
+                                  )
+                                ])
+                              : _vm._e(),
+                            _vm._v(" "),
+                            !_vm.$v.contactForm.name.maxLength
+                              ? _c("p", { staticClass: "invalid" }, [
+                                  _vm._v(
+                                    "Name can't be more than " +
+                                      _vm._s(
+                                        _vm.$v.contactForm.name.$params
+                                          .maxLength.max
+                                      ) +
+                                      " chars"
+                                  )
+                                ])
+                              : _vm._e()
+                          ])
+                        : _vm._e()
                     ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "form-group" }, [
@@ -86156,64 +86135,71 @@ var render = function() {
                         directives: [
                           {
                             name: "model",
-                            rawName: "v-model",
-                            value: _vm.contactForm.email,
-                            expression: "contactForm.email"
+                            rawName: "v-model.trim",
+                            value: _vm.$v.contactForm.email.$model,
+                            expression: "$v.contactForm.email.$model",
+                            modifiers: { trim: true }
                           }
                         ],
-                        class: [
-                          "form-control",
-                          _vm.$v.contactForm.email.$invalid
-                            ? "is-invalid"
-                            : "is-valid"
-                        ],
+                        staticClass: "form-control",
+                        class: {
+                          "is-invalid": _vm.$v.contactForm.email.$error,
+                          "is-valid": !_vm.$v.contactForm.email.$invalid
+                        },
                         attrs: { type: "text", placeholder: "Email *" },
-                        domProps: { value: _vm.contactForm.email },
+                        domProps: { value: _vm.$v.contactForm.email.$model },
                         on: {
                           input: function($event) {
                             if ($event.target.composing) {
                               return
                             }
                             _vm.$set(
-                              _vm.contactForm,
-                              "email",
-                              $event.target.value
+                              _vm.$v.contactForm.email,
+                              "$model",
+                              $event.target.value.trim()
                             )
+                          },
+                          blur: function($event) {
+                            return _vm.$forceUpdate()
                           }
                         }
                       }),
                       _vm._v(" "),
-                      _c(
-                        "p",
-                        {
-                          directives: [
-                            {
-                              name: "show",
-                              rawName: "v-show",
-                              value: !_vm.$v.contactForm.email.required,
-                              expression: "!$v.contactForm.email.required"
-                            }
-                          ],
-                          staticClass: "invalid"
-                        },
-                        [_vm._v("Email is required")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "p",
-                        {
-                          directives: [
-                            {
-                              name: "show",
-                              rawName: "v-show",
-                              value: !_vm.$v.contactForm.email.email,
-                              expression: "!$v.contactForm.email.email"
-                            }
-                          ],
-                          staticClass: "invalid"
-                        },
-                        [_vm._v("Email is invalid")]
-                      )
+                      _vm.$v.contactForm.email.$error
+                        ? _c("div", { staticClass: "invalid-feedback" }, [
+                            _c(
+                              "p",
+                              {
+                                directives: [
+                                  {
+                                    name: "show",
+                                    rawName: "v-show",
+                                    value: !_vm.$v.contactForm.email.required,
+                                    expression: "!$v.contactForm.email.required"
+                                  }
+                                ],
+                                staticClass: "invalid"
+                              },
+                              [_vm._v("Email is required")]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "p",
+                              {
+                                directives: [
+                                  {
+                                    name: "show",
+                                    rawName: "v-show",
+                                    value: !_vm.$v.contactForm.email.email,
+                                    expression: "!$v.contactForm.email.email"
+                                  }
+                                ],
+                                staticClass: "invalid"
+                              },
+                              [_vm._v("Email is invalid")]
+                            )
+                          ])
+                        : _vm._e()
                     ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "form-group" }, [
@@ -86221,96 +86207,110 @@ var render = function() {
                         directives: [
                           {
                             name: "model",
-                            rawName: "v-model",
-                            value: _vm.contactForm.subject,
-                            expression: "contactForm.subject"
+                            rawName: "v-model.trim",
+                            value: _vm.$v.contactForm.subject.$model,
+                            expression: "$v.contactForm.subject.$model",
+                            modifiers: { trim: true }
                           }
                         ],
-                        class: [
-                          "form-control",
-                          _vm.$v.contactForm.subject.$invalid
-                            ? "is-invalid"
-                            : "is-valid"
-                        ],
+                        staticClass: "form-control",
+                        class: {
+                          "is-invalid": _vm.$v.contactForm.subject.$error,
+                          "is-valid": !_vm.$v.contactForm.subject.$invalid
+                        },
                         attrs: { type: "text", placeholder: "Subject *" },
-                        domProps: { value: _vm.contactForm.subject },
+                        domProps: { value: _vm.$v.contactForm.subject.$model },
                         on: {
                           input: function($event) {
                             if ($event.target.composing) {
                               return
                             }
                             _vm.$set(
-                              _vm.contactForm,
-                              "subject",
-                              $event.target.value
+                              _vm.$v.contactForm.subject,
+                              "$model",
+                              $event.target.value.trim()
                             )
+                          },
+                          blur: function($event) {
+                            return _vm.$forceUpdate()
                           }
                         }
                       }),
                       _vm._v(" "),
-                      _c(
-                        "p",
-                        {
-                          directives: [
-                            {
-                              name: "show",
-                              rawName: "v-show",
-                              value: !_vm.$v.contactForm.subject.required,
-                              expression: "!$v.contactForm.subject.required"
-                            }
-                          ],
-                          staticClass: "invalid"
-                        },
-                        [_vm._v("Subject is required")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "p",
-                        {
-                          directives: [
-                            {
-                              name: "show",
-                              rawName: "v-show",
-                              value: !_vm.$v.contactForm.subject.minLength,
-                              expression: "!$v.contactForm.subject.minLength"
-                            }
-                          ],
-                          staticClass: "invalid"
-                        },
-                        [
-                          _vm._v(
-                            "Subject can't be less than " +
-                              _vm._s(
-                                _vm.$v.contactForm.subject.$params.minLength.min
-                              ) +
-                              " chars"
-                          )
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "p",
-                        {
-                          directives: [
-                            {
-                              name: "show",
-                              rawName: "v-show",
-                              value: !_vm.$v.contactForm.subject.maxLength,
-                              expression: "!$v.contactForm.subject.maxLength"
-                            }
-                          ],
-                          staticClass: "invalid"
-                        },
-                        [
-                          _vm._v(
-                            "Subject can't be more than " +
-                              _vm._s(
-                                _vm.$v.contactForm.subject.$params.maxLength.max
-                              ) +
-                              " chars"
-                          )
-                        ]
-                      )
+                      _vm.$v.contactForm.subject.$error
+                        ? _c("div", { staticClass: "invalid-feedback" }, [
+                            _c(
+                              "p",
+                              {
+                                directives: [
+                                  {
+                                    name: "show",
+                                    rawName: "v-show",
+                                    value: !_vm.$v.contactForm.subject.required,
+                                    expression:
+                                      "!$v.contactForm.subject.required"
+                                  }
+                                ],
+                                staticClass: "invalid"
+                              },
+                              [_vm._v("Subject is required")]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "p",
+                              {
+                                directives: [
+                                  {
+                                    name: "show",
+                                    rawName: "v-show",
+                                    value: !_vm.$v.contactForm.subject
+                                      .minLength,
+                                    expression:
+                                      "!$v.contactForm.subject.minLength"
+                                  }
+                                ],
+                                staticClass: "invalid"
+                              },
+                              [
+                                _vm._v(
+                                  "Subject can't be less than " +
+                                    _vm._s(
+                                      _vm.$v.contactForm.subject.$params
+                                        .minLength.min
+                                    ) +
+                                    " chars"
+                                )
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "p",
+                              {
+                                directives: [
+                                  {
+                                    name: "show",
+                                    rawName: "v-show",
+                                    value: !_vm.$v.contactForm.subject
+                                      .maxLength,
+                                    expression:
+                                      "!$v.contactForm.subject.maxLength"
+                                  }
+                                ],
+                                staticClass: "invalid"
+                              },
+                              [
+                                _vm._v(
+                                  "Subject can't be more than " +
+                                    _vm._s(
+                                      _vm.$v.contactForm.subject.$params
+                                        .maxLength.max
+                                    ) +
+                                    " chars"
+                                )
+                              ]
+                            )
+                          ])
+                        : _vm._e()
                     ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "form-group" }, [
@@ -86318,102 +86318,114 @@ var render = function() {
                         directives: [
                           {
                             name: "model",
-                            rawName: "v-model",
-                            value: _vm.contactForm.message,
-                            expression: "contactForm.message"
+                            rawName: "v-model.trim",
+                            value: _vm.$v.contactForm.message.$model,
+                            expression: "$v.contactForm.message.$model",
+                            modifiers: { trim: true }
                           }
                         ],
-                        class: [
-                          "form-control",
-                          _vm.$v.contactForm.message.$invalid
-                            ? "is-invalid"
-                            : "is-valid"
-                        ],
+                        staticClass: "form-control",
+                        class: {
+                          "is-invalid": _vm.$v.contactForm.message.$error,
+                          "is-valid": !_vm.$v.contactForm.message.$invalid
+                        },
                         attrs: {
-                          name: "",
-                          id: "",
                           cols: "30",
                           rows: "7",
                           placeholder: "Message *"
                         },
-                        domProps: { value: _vm.contactForm.message },
+                        domProps: { value: _vm.$v.contactForm.message.$model },
                         on: {
                           input: function($event) {
                             if ($event.target.composing) {
                               return
                             }
                             _vm.$set(
-                              _vm.contactForm,
-                              "message",
-                              $event.target.value
+                              _vm.$v.contactForm.message,
+                              "$model",
+                              $event.target.value.trim()
                             )
+                          },
+                          blur: function($event) {
+                            return _vm.$forceUpdate()
                           }
                         }
                       }),
                       _vm._v(" "),
-                      _c(
-                        "p",
-                        {
-                          directives: [
-                            {
-                              name: "show",
-                              rawName: "v-show",
-                              value: !_vm.$v.contactForm.message.required,
-                              expression: "!$v.contactForm.message.required"
-                            }
-                          ],
-                          staticClass: "invalid"
-                        },
-                        [_vm._v("Message is required")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "p",
-                        {
-                          directives: [
-                            {
-                              name: "show",
-                              rawName: "v-show",
-                              value: !_vm.$v.contactForm.message.minLength,
-                              expression: "!$v.contactForm.message.minLength"
-                            }
-                          ],
-                          staticClass: "invalid"
-                        },
-                        [
-                          _vm._v(
-                            "Message can't be less than " +
-                              _vm._s(
-                                _vm.$v.contactForm.message.$params.minLength.min
-                              ) +
-                              " chars"
-                          )
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "p",
-                        {
-                          directives: [
-                            {
-                              name: "show",
-                              rawName: "v-show",
-                              value: !_vm.$v.contactForm.message.maxLength,
-                              expression: "!$v.contactForm.message.maxLength"
-                            }
-                          ],
-                          staticClass: "invalid"
-                        },
-                        [
-                          _vm._v(
-                            "Message can't be more than " +
-                              _vm._s(
-                                _vm.$v.contactForm.message.$params.maxLength.max
-                              ) +
-                              " chars"
-                          )
-                        ]
-                      )
+                      _vm.$v.contactForm.message.$error
+                        ? _c("div", { staticClass: "invalid-feedback" }, [
+                            _c(
+                              "p",
+                              {
+                                directives: [
+                                  {
+                                    name: "show",
+                                    rawName: "v-show",
+                                    value: !_vm.$v.contactForm.message.required,
+                                    expression:
+                                      "!$v.contactForm.message.required"
+                                  }
+                                ],
+                                staticClass: "invalid"
+                              },
+                              [_vm._v("Message is required")]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "p",
+                              {
+                                directives: [
+                                  {
+                                    name: "show",
+                                    rawName: "v-show",
+                                    value: !_vm.$v.contactForm.message
+                                      .minLength,
+                                    expression:
+                                      "!$v.contactForm.message.minLength"
+                                  }
+                                ],
+                                staticClass: "invalid"
+                              },
+                              [
+                                _vm._v(
+                                  "Message can't be less than " +
+                                    _vm._s(
+                                      _vm.$v.contactForm.message.$params
+                                        .minLength.min
+                                    ) +
+                                    " chars"
+                                )
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "p",
+                              {
+                                directives: [
+                                  {
+                                    name: "show",
+                                    rawName: "v-show",
+                                    value: !_vm.$v.contactForm.message
+                                      .maxLength,
+                                    expression:
+                                      "!$v.contactForm.message.maxLength"
+                                  }
+                                ],
+                                staticClass: "invalid"
+                              },
+                              [
+                                _vm._v(
+                                  "Message can't be more than " +
+                                    _vm._s(
+                                      _vm.$v.contactForm.message.$params
+                                        .maxLength.max
+                                    ) +
+                                    " chars"
+                                )
+                              ]
+                            )
+                          ])
+                        : _vm._e()
                     ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "form-group mb-0" }, [
