@@ -82291,7 +82291,7 @@ var render = function() {
               _vm._v(" "),
               _c(
                 "nav",
-                { staticClass: "mt-10" },
+                { staticClass: "mt-30" },
                 [
                   _c(
                     "jet-nav-link",
@@ -82471,7 +82471,7 @@ var render = function() {
                     _vm._v(" "),
                     _c("input", {
                       staticClass:
-                        "form-input w-32 sm:w-64 rounded-md pl-10 pr-4 focus:border-indigo-600",
+                        "form-input w-32 sm:w-64 rounded-md pl-40 pr-4 focus:border-indigo-600",
                       attrs: { type: "text", placeholder: "Search" }
                     })
                   ])

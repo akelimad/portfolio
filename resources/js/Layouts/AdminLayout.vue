@@ -14,7 +14,7 @@
                         </div>
                     </div>
 
-                    <nav class="mt-10">
+                    <nav class="mt-30">
                         <jet-nav-link :href="route('dashboard')" :active="route().current('dashboard')">
                             <i class="fa fa-dashboard"></i>
                             <span class="mx-3">Dashboard</span>
@@ -66,7 +66,7 @@
                             </svg>
                         </span>
 
-                                <input class="form-input w-32 sm:w-64 rounded-md pl-10 pr-4 focus:border-indigo-600" type="text"
+                                <input class="form-input w-32 sm:w-64 rounded-md pl-40 pr-4 focus:border-indigo-600" type="text"
                                        placeholder="Search">
                             </div>
                         </div>
